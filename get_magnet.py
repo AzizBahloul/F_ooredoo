@@ -1,0 +1,39 @@
+#!/usr/bin/env python3
+"""
+Helper script to extract full magnet link from your README
+"""
+
+print("=" * 80)
+print("🧲 MAGNET LINK EXTRACTOR")
+print("=" * 80)
+print()
+
+# The FULL magnet from your README
+TOMB_RAIDER_MAGNET = """magnet:?xt=urn:btih:51C86B31924DC3B1FCBC7F0E2491ADF8DE6B1ACE&dn=Rise+of+the+Tomb+Raider%3A+20+Year+Celebration+%28v1.0.1.2+GOG+%2B+All+DLCs%2C+MULTi15%29+%5BFitGirl+Repack%2C+Selective+Download+-+from+12.9+GB%5D&tr=udp%3A%2F%2Fopentor.net%3A6969&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Ftracker.theoks.net%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.ccp.ovh%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=http%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=https%3A%2F%2Ftracker.tamersunion.org%3A443%2Fannounce&tr=udp%3A%2F%2Fexplodie.org%3A6969%2Fannounce&tr=http%3A%2F%2Ftracker.bt4g.com%3A2095%2Fannounce&tr=udp%3A%2F%2Fbt2.archive.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fbt1.archive.org%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.filemail.com%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker1.bt.moack.co.kr%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=http%3A%2F%2Ftracker.openbittorrent.com%3A80%2Fannounce&tr=udp%3A%2F%2Fopentracker.i2p.rocks%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.internetwarriors.net%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fcoppersurfer.tk%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.zer0day.to%3A1337%2Fannounce"""
+
+print("Full magnet link for Rise of the Tomb Raider:")
+print()
+print(TOMB_RAIDER_MAGNET)
+print()
+print("=" * 80)
+print()
+print("To download, run:")
+print()
+print(f'python test_download.py --magnet "{TOMB_RAIDER_MAGNET}"')
+print()
+print("Or just run:")
+print()
+print('python test_download.py --magnet "$(cat <<EOF')
+print(TOMB_RAIDER_MAGNET)
+print('EOF')
+print(')"')
+print()
+
+# Save to file
+with open("tomb_raider_magnet.txt", "w") as f:
+    f.write(TOMB_RAIDER_MAGNET)
+
+print("✅ Also saved to: tomb_raider_magnet.txt")
+print()
+print("You can use it like:")
+print('python test_download.py --magnet "$(cat tomb_raider_magnet.txt)"')

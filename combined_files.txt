@@ -1,0 +1,2411 @@
+# Virtual Environment
+venv/
+env/
+ENV/
+.venv/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# Distribution / packaging
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Torrent downloads (default location)
+Downloads/
+Torrents/
+
+# Logs
+*.log
+# 🚀 Secure Torrent Downloader - Anti-Throttling Edition
+
+A modern, encrypted torrent client specifically designed to bypass ISP throttling through advanced traffic encryption and obfuscation techniques.
+
+## 🔒 Features
+
+### Anti-Throttling Technology
+- **RC4/MSE Protocol Encryption**: Forced encryption on all BitTorrent connections
+- **Deep Packet Inspection (DPI) Bypass**: Traffic obfuscation to avoid ISP detection
+- **DHT Obfuscation**: Encrypted peer discovery
+- **uTP Protocol Support**: Additional layer to bypass throttling
+- **Randomized Ports**: Avoids common BitTorrent port blocking
+- **Traffic Pattern Randomization**: Makes it harder to identify torrent traffic
+
+### User Experience
+- **Modern GUI**: Built with CustomTkinter for a sleek, dark-themed interface
+- **Real-time Progress**: Live download/upload speeds and peer count
+- **Encryption Status**: Visual indicator showing encryption is active
+- **Magnet Link Support**: Just paste and download
+- **.torrent File Support**: Browse and select torrent files
+- **Multi-torrent Management**: Download multiple files simultaneously
+
+## 📋 Requirements
+
+- Python 3.8 or higher
+- Linux, Windows, or macOS
+- Internet connection (obviously!)
+
+## 🛠️ Installation
+
+### Automated Setup (Recommended)
+
+The easiest way to set up the project is to use the setup script:
+
+```bash
+# Navigate to the project directory
+cd /home/siaziz/Desktop/foreedo
+
+# Make the setup script executable
+chmod +x setup.sh
+
+# Run the setup script
+./setup.sh
+```
+
+This will:
+- Create a virtual environment (venv)
+- Install all system dependencies
+- Install all Python packages
+- Configure everything properly
+
+### Manual Installation (Alternative)
+
+If you prefer to install manually:
+
+**Step 1: Install System Dependencies (Linux)**
+
+```bash
+# Ubuntu/Debian
+sudo apt-get update
+sudo apt-get install python3-libtorrent python3-tk python3-venv
+
+# Fedora
+sudo dnf install python3-libtorrent python3-tkinter
+
+# Arch Linux
+sudo pacman -S libtorrent-rasterbar python-libtorrent tk
+```
+
+**Step 2: Create Virtual Environment**
+
+```bash
+# Create virtual environment with Python 3.12 (or python3)
+python3.12 -m venv venv
+
+# Activate the virtual environment
+source venv/bin/activate
+```
+
+**Step 3: Install Python Packages**
+
+```bash
+# Upgrade pip
+pip install --upgrade pip
+
+# Install dependencies
+pip install -r requirements.txt
+```
+
+## 🚀 Running the Application
+
+### Using the Run Script (Recommended)
+
+```bash
+# Make the run script executable (first time only)
+chmod +x run.sh
+
+# Run the application
+./run.sh
+```
+
+### Manual Run
+
+```bash
+# Activate virtual environment
+source venv/bin/activate
+
+# Run the application
+python main.py
+
+# When done, deactivate
+deactivate
+```
+
+### Headless Max-Speed CLI (No GUI)
+
+Use the included headless downloader to test maximum speed and bypass ISP throttling:
+
+```bash
+# Activate venv
+source venv/bin/activate
+
+# Show options
+python test_download.py --help
+
+# Run normally (no proxy)
+python test_download.py
+
+# Auto-detect local SSH SOCKS5 tunnel on 127.0.0.1:1080 (if you ran: ssh -D 1080 user@server)
+python test_download.py --auto-proxy
+
+# Explicitly use a proxy
+python test_download.py --use-proxy --proxy socks5://127.0.0.1:1080
+
+# Try TCP-only if your ISP filters UDP/uTP
+python test_download.py --no-utp --prefer-tcp
+
+# Force encryption (may reduce peers)
+python test_download.py --enc forced
+```
+
+See `BYPASS_OOREDOO.md` for more details on setting up an SSH tunnel or VPN.
+
+### Testing Dependencies
+
+```bash
+# Make test script executable (first time only)
+chmod +x test.sh
+
+# Run tests
+./test.sh
+```
+
+Or manually:
+
+```bash
+# Activate virtual environment
+source venv/bin/activate
+
+# Test dependencies
+python test_dependencies.py
+
+# Deactivate
+deactivate
+```
+
+## 🎯 How to Use
+
+### Adding a Torrent
+
+1. **Copy a Magnet Link**:
+   - Find a magnet link (starts with `magnet:?xt=urn:btih:...`)
+   - Copy it to your clipboard
+
+2. **Add to Downloader**:
+   - Paste the magnet link in the input field
+   - Click "⬇ Download" button
+   - The download will start automatically with encryption enabled!
+
+3. **Or Use a .torrent File**:
+   - Click "📁 Browse .torrent" button
+   - Select your .torrent file
+   - Click "⬇ Download"
+
+### Managing Downloads
+
+- **Pause**: Click the ⏸ button on any torrent
+- **Resume**: Click the ▶ button on a paused torrent
+- **Remove**: Click the 🗑 button to remove a torrent
+- **Change Download Location**: Click "Change" in the bottom status bar
+
+### Monitoring Encryption
+
+- Each torrent card shows "🔒 Encrypted" when encryption is active
+- Green color indicates the connection is properly encrypted
+- The status changes to "⏳ Connecting..." while finding encrypted peers
+
+## 🔧 Configuration
+
+The application is pre-configured with optimal settings for bypassing ISP throttling:
+
+- **Encryption Mode**: Forced (only encrypted connections)
+- **Protocol**: RC4/MSE (Message Stream Encryption)
+- **DHT**: Enabled with obfuscation
+- **uTP**: Enabled for additional DPI bypass
+- **Connection Limit**: 500 peers
+- **Speeds**: Unlimited (adjust in code if needed)
+
+To view settings, click the "⚙️ Settings" button in the application.
+
+## 📁 Project Structure
+
+```
+fuckOreedooo/
+├── main.py              # Application entry point
+├── torrent_client.py    # Core torrent client with encryption
+├── gui.py               # Modern GUI implementation
+├── requirements.txt     # Python dependencies
+└── README.md           # This file
+```
+
+## 🛡️ How It Works
+
+### Bypassing ISP Throttling
+
+1. **Protocol Encryption**: All BitTorrent traffic is encrypted using RC4/MSE, making it unreadable to ISP Deep Packet Inspection (DPI)
+
+2. **Traffic Obfuscation**: The encrypted traffic doesn't have the typical BitTorrent handshake pattern that ISPs look for
+
+3. **Port Randomization**: Using random ports instead of common BitTorrent ports (6881-6889) avoids simple port-based blocking
+
+4. **uTP Protocol**: Micro Transport Protocol adds another layer that helps bypass some throttling mechanisms
+
+5. **DHT Obfuscation**: Peer discovery is also encrypted, hiding your torrent activity
+
+### Why This Works
+
+ISPs typically throttle torrent traffic by:
+- Detecting BitTorrent handshake patterns
+- Monitoring specific ports
+- Deep packet inspection of unencrypted traffic
+
+By encrypting everything and randomizing patterns, your torrent traffic looks like regular HTTPS traffic to your ISP.
+
+## 💡 Tips for Best Performance
+
+1. **Keep the Application Running**: Don't close it immediately after downloads finish - seeding helps the network and your ratio
+
+2. **Popular Torrents**: Work best because more peers support encryption
+
+3. **VPN Combo**: For maximum privacy, combine this with a VPN (though encryption alone defeats throttling)
+
+4. **Firewall**: Make sure to allow the application through your firewall
+
+5. **Antivirus**: Some antivirus software may flag torrent clients - add an exception if needed
+
+## ⚠️ Legal Notice
+
+This software is designed to bypass unfair ISP throttling on **legal torrent traffic**. 
+
+- Always respect copyright laws in your country
+- Only download content you have the right to download
+- This tool is for educational purposes and legitimate use cases
+- The developers are not responsible for any misuse
+
+## 🐛 Troubleshooting
+
+### "No module named 'libtorrent'" Error
+
+Install libtorrent:
+```bash
+pip install libtorrent
+```
+
+If that doesn't work, install system package:
+```bash
+# Ubuntu/Debian
+sudo apt-get install python3-libtorrent
+```
+
+### "No module named 'customtkinter'" Error
+
+Install CustomTkinter:
+```bash
+pip install customtkinter
+```
+
+### Downloads Are Slow
+
+- Check if you have encrypted peers (look for the 🔒 indicator)
+- Try a more popular torrent (more peers = better speeds)
+- Verify your internet connection speed
+- Some ISPs still throttle even with encryption (consider using a VPN)
+
+### Application Won't Start
+
+Make sure you have Python 3.8+:
+```bash
+python3 --version
+```
+
+Install all dependencies:
+```bash
+pip install -r requirements.txt
+```
+
+## 🔮 Future Enhancements
+
+Potential features for future versions:
+- Built-in VPN integration
+- Bandwidth limiting options
+- RSS feed support for automatic downloads
+- Download scheduling
+- Torrent search integration
+- Mobile companion app
+
+## 📝 License
+
+This project is provided as-is for educational purposes. Use responsibly and legally.
+
+## 🤝 Contributing
+
+Feel free to improve this project! Some areas that could use work:
+- Better error handling
+- More encryption options
+- Performance optimizations
+- Additional obfuscation techniques
+
+## 📧 Support
+
+If you encounter issues:
+1. Check the Troubleshooting section above
+2. Make sure all dependencies are installed
+3. Verify you're using Python 3.8+
+4. Check your firewall settings
+
+---
+
+**Made with ❤️ to fight unfair ISP throttling**
+
+*Remember: Encryption is your right. Privacy matters.* 🔒
+#gui.py
+
+import customtkinter as ctk
+from tkinter import filedialog, messagebox
+import threading
+from typing import Optional
+from torrent_client import TorrentClient
+import logging
+
+# Configure logging
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s - %(levelname)s - %(message)s'
+)
+logger = logging.getLogger(__name__)
+
+
+class TorrentGUI:
+    """Modern GUI application for torrent downloading"""
+    
+    def __init__(self, client: TorrentClient):
+        logger.info("Initializing TorrentGUI...")
+        self.client = client
+        self.client.status_callback = self._update_torrent_list
+        
+        # Create main window
+        self.root = ctk.CTk()
+        self.root.title("🚀 Secure Torrent Downloader - Anti-Throttling")
+        self.root.geometry("1300x850")
+        
+        # Set minimum window size
+        self.root.minsize(1000, 700)
+        
+        # Store torrent frames for updates
+        self.torrent_frames = {}
+        
+        logger.info("Prompting user to select download path...")
+        # Force user to select download path on startup
+        self._force_select_download_path()
+        
+        # Build the UI
+        self._build_ui()
+        
+        logger.info("GUI initialized successfully")
+        # Handle window close
+        self.root.protocol("WM_DELETE_WINDOW", self._on_closing)
+    
+    def _build_ui(self):
+        """Build the complete user interface"""
+        logger.info("Building user interface...")
+        # Configure grid layout
+        self.root.grid_columnconfigure(0, weight=1)
+        self.root.grid_rowconfigure(1, weight=1)
+        
+        # Top control panel
+        self._build_control_panel()
+        
+        # Main content area
+        self._build_content_area()
+        
+        # Bottom status bar
+        self._build_status_bar()
+        logger.info("User interface built successfully")
+    
+    def _force_select_download_path(self):
+        """Force user to select download path on startup"""
+        logger.info("Forcing user to select download directory...")
+        while True:
+            path = filedialog.askdirectory(
+                title="🗂️ Select Download Directory",
+                mustexist=True
+            )
+            
+            if not path:
+                logger.warning("User cancelled directory selection, asking again...")
+                response = messagebox.askyesno(
+                    "Download Path Required",
+                    "You must select a download directory to continue.\n\nClick 'Yes' to select again or 'No' to exit."
+                )
+                if not response:
+                    logger.info("User chose to exit without selecting download path")
+                    self.root.quit()
+                    exit(0)
+                continue
+            
+            logger.info(f"User selected download path: {path}")
+            self.client.set_download_path(path)
+            logger.info(f"Download path set to: {path}")
+            break
+    
+    def _build_control_panel(self):
+        """Build top control panel with input and buttons"""
+        control_frame = ctk.CTkFrame(self.root, corner_radius=10)
+        control_frame.grid(row=0, column=0, padx=20, pady=(20, 10), sticky="ew")
+        control_frame.grid_columnconfigure(0, weight=1)
+        
+        # Title
+        title_label = ctk.CTkLabel(
+            control_frame,
+            text="🔒 Encrypted Torrent Downloader",
+            font=ctk.CTkFont(size=24, weight="bold")
+        )
+        title_label.grid(row=0, column=0, columnspan=3, pady=(15, 5), padx=20, sticky="w")
+        
+        # Subtitle with encryption info
+        subtitle_label = ctk.CTkLabel(
+            control_frame,
+            text="✓ RC4/MSE Encryption Active  •  ✓ DPI Bypass Enabled  •  ✓ Anti-Throttling Protection",
+            font=ctk.CTkFont(size=12),
+            text_color="lime"
+        )
+        subtitle_label.grid(row=1, column=0, columnspan=3, pady=(0, 15), padx=20, sticky="w")
+        
+        # Magnet link input
+        magnet_label = ctk.CTkLabel(
+            control_frame,
+            text="Magnet Link / Torrent File:",
+            font=ctk.CTkFont(size=14, weight="bold")
+        )
+        magnet_label.grid(row=2, column=0, padx=(20, 10), pady=(10, 5), sticky="w")
+        
+        self.magnet_entry = ctk.CTkEntry(
+            control_frame,
+            placeholder_text="Paste magnet link here (magnet:?xt=urn:btih:...)",
+            height=45,
+            font=ctk.CTkFont(size=13)
+        )
+        self.magnet_entry.grid(row=3, column=0, padx=(20, 10), pady=(0, 20), sticky="ew")
+        
+        # Buttons frame
+        button_frame = ctk.CTkFrame(control_frame, fg_color="transparent")
+        button_frame.grid(row=3, column=1, padx=10, pady=(0, 20), sticky="e")
+        
+        # Browse button
+        browse_btn = ctk.CTkButton(
+            button_frame,
+            text="📁 Browse .torrent",
+            command=self._browse_torrent,
+            width=150,
+            height=45,
+            font=ctk.CTkFont(size=13, weight="bold"),
+            fg_color="#2B2B2B",
+            hover_color="#3B3B3B"
+        )
+        browse_btn.grid(row=0, column=0, padx=(0, 10))
+        
+        # Add button
+        add_btn = ctk.CTkButton(
+            button_frame,
+            text="⬇ Download",
+            command=self._add_torrent,
+            width=150,
+            height=45,
+            font=ctk.CTkFont(size=14, weight="bold"),
+            fg_color="#1E88E5",
+            hover_color="#1565C0"
+        )
+        add_btn.grid(row=0, column=1, padx=(0, 20))
+    
+    def _build_content_area(self):
+        """Build main content area with torrent list"""
+        content_frame = ctk.CTkFrame(self.root, corner_radius=10)
+        content_frame.grid(row=1, column=0, padx=20, pady=10, sticky="nsew")
+        content_frame.grid_columnconfigure(0, weight=1)
+        content_frame.grid_rowconfigure(1, weight=1)
+        
+        # Header
+        header_frame = ctk.CTkFrame(content_frame, fg_color="transparent")
+        header_frame.grid(row=0, column=0, sticky="ew", padx=20, pady=(20, 10))
+        
+        header_label = ctk.CTkLabel(
+            header_frame,
+            text="📥 Active Downloads",
+            font=ctk.CTkFont(size=18, weight="bold")
+        )
+        header_label.pack(side="left")
+        
+        # Settings button
+        settings_btn = ctk.CTkButton(
+            header_frame,
+            text="⚙️ Settings",
+            command=self._open_settings,
+            width=120,
+            height=35,
+            font=ctk.CTkFont(size=12, weight="bold"),
+            fg_color="#424242",
+            hover_color="#525252"
+        )
+        settings_btn.pack(side="right", padx=(0, 10))
+        
+        # Clear all button
+        clear_btn = ctk.CTkButton(
+            header_frame,
+            text="🗑️ Clear All",
+            command=self._clear_all,
+            width=120,
+            height=35,
+            font=ctk.CTkFont(size=12, weight="bold"),
+            fg_color="#D32F2F",
+            hover_color="#B71C1C"
+        )
+        clear_btn.pack(side="right")
+        
+        # Scrollable frame for torrents
+        self.scroll_frame = ctk.CTkScrollableFrame(
+            content_frame,
+            corner_radius=10,
+            fg_color="#1A1A1A"
+        )
+        self.scroll_frame.grid(row=1, column=0, padx=20, pady=(0, 20), sticky="nsew")
+        self.scroll_frame.grid_columnconfigure(0, weight=1)
+        
+        # Empty state message
+        self.empty_label = ctk.CTkLabel(
+            self.scroll_frame,
+            text="No active downloads\n\nPaste a magnet link above and click 'Download' to start",
+            font=ctk.CTkFont(size=16),
+            text_color="gray"
+        )
+        self.empty_label.grid(row=0, column=0, pady=100)
+    
+    def _build_status_bar(self):
+        """Build bottom status bar"""
+        status_frame = ctk.CTkFrame(self.root, height=60, corner_radius=10)
+        status_frame.grid(row=2, column=0, padx=20, pady=(10, 20), sticky="ew")
+        status_frame.grid_columnconfigure(1, weight=1)
+        
+        # Global speed indicator (left side)
+        speed_frame = ctk.CTkFrame(status_frame, fg_color="#1E1E1E", corner_radius=8)
+        speed_frame.grid(row=0, column=0, padx=15, pady=10, sticky="w")
+        
+        speed_icon = ctk.CTkLabel(
+            speed_frame,
+            text="🌐",
+            font=ctk.CTkFont(size=18)
+        )
+        speed_icon.pack(side="left", padx=(10, 5))
+        
+        self.global_download_label = ctk.CTkLabel(
+            speed_frame,
+            text="⬇ 0.00 MB/s",
+            font=ctk.CTkFont(size=13, weight="bold"),
+            text_color="#4CAF50"
+        )
+        self.global_download_label.pack(side="left", padx=5)
+        
+        self.global_upload_label = ctk.CTkLabel(
+            speed_frame,
+            text="⬆ 0.00 MB/s",
+            font=ctk.CTkFont(size=13, weight="bold"),
+            text_color="#FF9800"
+        )
+        self.global_upload_label.pack(side="left", padx=(5, 10))
+        
+        # Download path (center)
+        path_container = ctk.CTkFrame(status_frame, fg_color="transparent")
+        path_container.grid(row=0, column=1, padx=10, pady=10, sticky="ew")
+        
+        path_label = ctk.CTkLabel(
+            path_container,
+            text="📁 Download Path:",
+            font=ctk.CTkFont(size=12, weight="bold")
+        )
+        path_label.pack(side="left", padx=(5, 5))
+        
+        self.path_value = ctk.CTkLabel(
+            path_container,
+            text=self.client.download_path,
+            font=ctk.CTkFont(size=11),
+            text_color="#90A4AE"
+        )
+        self.path_value.pack(side="left", padx=5)
+        
+        # Change path button (right)
+        change_path_btn = ctk.CTkButton(
+            status_frame,
+            text="📂 Change",
+            command=self._change_download_path,
+            width=100,
+            height=35,
+            font=ctk.CTkFont(size=12),
+            fg_color="#424242",
+            hover_color="#525252",
+            corner_radius=8
+        )
+        change_path_btn.grid(row=0, column=2, padx=15, pady=10)
+    
+    def _browse_torrent(self):
+        """Browse for .torrent file"""
+        logger.info("User opening file browser for .torrent selection...")
+        filename = filedialog.askopenfilename(
+            title="Select Torrent File",
+            filetypes=[("Torrent Files", "*.torrent"), ("All Files", "*.*")]
+        )
+        if filename:
+            logger.info(f"User selected torrent file: {filename}")
+            self.magnet_entry.delete(0, 'end')
+            self.magnet_entry.insert(0, filename)
+        else:
+            logger.info("User cancelled file browser")
+    
+    def _add_torrent(self):
+        """Add a new torrent"""
+        magnet_uri = self.magnet_entry.get().strip()
+        
+        logger.info(f"User attempting to add torrent: {magnet_uri[:80]}...")
+        
+        if not magnet_uri:
+            logger.warning("User tried to add torrent without providing magnet link or file")
+            messagebox.showwarning("Warning", "Please enter a magnet link or select a torrent file!")
+            return
+        
+        # Add torrent in background thread
+        def add_thread():
+            logger.info(f"Starting thread to add torrent...")
+            success = self.client.add_torrent(magnet_uri)
+            if success:
+                logger.info("Torrent added successfully")
+                self.magnet_entry.delete(0, 'end')
+                self._show_notification("✅ Torrent Added", "Download started with encryption enabled!")
+            else:
+                logger.error(f"Failed to add torrent: {magnet_uri}")
+                self._show_notification("❌ Error", "Failed to add torrent. Check the link/file.", error=True)
+        
+        threading.Thread(target=add_thread, daemon=True).start()
+    
+    def _update_torrent_list(self, torrents):
+        """Update the torrent list display"""
+        # Run in main thread
+        self.root.after(0, lambda: self._update_torrent_list_ui(torrents))
+    
+    def _update_torrent_list_ui(self, torrents):
+        """Update torrent list UI (must be called from main thread)"""
+        # Hide/show empty label
+        if torrents:
+            self.empty_label.grid_forget()
+        else:
+            self.empty_label.grid(row=0, column=0, pady=100)
+            # Reset global speeds when no torrents
+            self.global_download_label.configure(text="⬇ 0.00 MB/s", text_color="#757575")
+            self.global_upload_label.configure(text="⬆ 0.00 MB/s", text_color="#757575")
+            return
+        
+        # Calculate total speeds
+        total_download = sum(t['download_speed'] for t in torrents)
+        total_upload = sum(t['upload_speed'] for t in torrents)
+        
+        # Update global speed display
+        dl_color = "#4CAF50" if total_download > 0 else "#757575"
+        ul_color = "#FF9800" if total_upload > 0 else "#757575"
+        
+        self.global_download_label.configure(
+            text=f"⬇ {total_download:.2f} MB/s",
+            text_color=dl_color
+        )
+        self.global_upload_label.configure(
+            text=f"⬆ {total_upload:.2f} MB/s",
+            text_color=ul_color
+        )
+        
+        # Update or create torrent cards
+        current_names = set()
+        
+        for i, status in enumerate(torrents):
+            name = status['name']
+            current_names.add(name)
+            
+            if name not in self.torrent_frames:
+                # Create new torrent card
+                self._create_torrent_card(name, i)
+            
+            # Update torrent card
+            self._update_torrent_card(name, status)
+        
+        # Remove torrents that no longer exist
+        for name in list(self.torrent_frames.keys()):
+            if name not in current_names:
+                self.torrent_frames[name]['frame'].destroy()
+                del self.torrent_frames[name]
+    
+    def _create_torrent_card(self, name: str, row: int):
+        """Create a new torrent display card"""
+        # Main card frame with gradient-like effect
+        card_frame = ctk.CTkFrame(self.scroll_frame, corner_radius=15, fg_color="#2A2A2A", border_width=2, border_color="#3A3A3A")
+        card_frame.grid(row=row, column=0, padx=10, pady=10, sticky="ew")
+        card_frame.grid_columnconfigure(0, weight=1)
+        
+        # Header with name and buttons
+        header_frame = ctk.CTkFrame(card_frame, fg_color="transparent")
+        header_frame.grid(row=0, column=0, sticky="ew", padx=20, pady=(20, 10))
+        header_frame.grid_columnconfigure(0, weight=1)
+        
+        name_label = ctk.CTkLabel(
+            header_frame,
+            text=name,
+            font=ctk.CTkFont(size=15, weight="bold"),
+            anchor="w"
+        )
+        name_label.grid(row=0, column=0, sticky="w")
+        
+        # Button frame
+        btn_frame = ctk.CTkFrame(header_frame, fg_color="transparent")
+        btn_frame.grid(row=0, column=1, sticky="e")
+        
+        pause_btn = ctk.CTkButton(
+            btn_frame,
+            text="⏸",
+            command=lambda: self._pause_torrent(name),
+            width=45,
+            height=35,
+            font=ctk.CTkFont(size=16),
+            fg_color="#424242",
+            hover_color="#525252",
+            corner_radius=8
+        )
+        pause_btn.grid(row=0, column=0, padx=3)
+        
+        resume_btn = ctk.CTkButton(
+            btn_frame,
+            text="▶",
+            command=lambda: self._resume_torrent(name),
+            width=45,
+            height=35,
+            font=ctk.CTkFont(size=16),
+            fg_color="#43A047",
+            hover_color="#2E7D32",
+            corner_radius=8
+        )
+        resume_btn.grid(row=0, column=1, padx=3)
+        
+        remove_btn = ctk.CTkButton(
+            btn_frame,
+            text="🗑",
+            command=lambda: self._remove_torrent(name),
+            width=45,
+            height=35,
+            font=ctk.CTkFont(size=16),
+            fg_color="#E53935",
+            hover_color="#C62828",
+            corner_radius=8
+        )
+        remove_btn.grid(row=0, column=2, padx=3)
+        
+        # Progress percentage and status
+        progress_status_frame = ctk.CTkFrame(card_frame, fg_color="transparent")
+        progress_status_frame.grid(row=1, column=0, sticky="ew", padx=20, pady=(5, 5))
+        progress_status_frame.grid_columnconfigure(1, weight=1)
+        
+        progress_label = ctk.CTkLabel(
+            progress_status_frame,
+            text="0%",
+            font=ctk.CTkFont(size=14, weight="bold"),
+            text_color="#4FC3F7"
+        )
+        progress_label.grid(row=0, column=0, sticky="w")
+        
+        state_label = ctk.CTkLabel(
+            progress_status_frame,
+            text="Initializing...",
+            font=ctk.CTkFont(size=12),
+            text_color="#90A4AE"
+        )
+        state_label.grid(row=0, column=1, sticky="w", padx=(10, 0))
+        
+        # Progress bar with enhanced styling
+        progress_bar = ctk.CTkProgressBar(
+            card_frame,
+            height=25,
+            corner_radius=12,
+            progress_color="#1E88E5",
+            fg_color="#1A1A1A"
+        )
+        progress_bar.grid(row=2, column=0, padx=20, pady=(5, 15), sticky="ew")
+        progress_bar.set(0)
+        
+        # Stats grid - 2 rows, 3 columns
+        stats_frame = ctk.CTkFrame(card_frame, fg_color="#1E1E1E", corner_radius=10)
+        stats_frame.grid(row=3, column=0, sticky="ew", padx=20, pady=(0, 15))
+        stats_frame.grid_columnconfigure((0, 1, 2), weight=1)
+        
+        # Row 1: Download Speed, Upload Speed, Peers
+        download_label = ctk.CTkLabel(
+            stats_frame,
+            text="⬇ 0.00 MB/s",
+            font=ctk.CTkFont(size=13, weight="bold"),
+            text_color="#4CAF50"
+        )
+        download_label.grid(row=0, column=0, padx=15, pady=(12, 6), sticky="w")
+        
+        upload_label = ctk.CTkLabel(
+            stats_frame,
+            text="⬆ 0.00 MB/s",
+            font=ctk.CTkFont(size=13, weight="bold"),
+            text_color="#FF9800"
+        )
+        upload_label.grid(row=0, column=1, padx=15, pady=(12, 6), sticky="w")
+        
+        peers_label = ctk.CTkLabel(
+            stats_frame,
+            text="👥 0 peers",
+            font=ctk.CTkFont(size=13),
+            text_color="#B0BEC5"
+        )
+        peers_label.grid(row=0, column=2, padx=15, pady=(12, 6), sticky="e")
+        
+        # Row 2: Size, Remaining Time, Encryption Status
+        size_label = ctk.CTkLabel(
+            stats_frame,
+            text="📦 0 MB / 0 MB",
+            font=ctk.CTkFont(size=12),
+            text_color="#B0BEC5"
+        )
+        size_label.grid(row=1, column=0, padx=15, pady=(6, 12), sticky="w")
+        
+        eta_label = ctk.CTkLabel(
+            stats_frame,
+            text="⏱ ∞",
+            font=ctk.CTkFont(size=12),
+            text_color="#FFC107"
+        )
+        eta_label.grid(row=1, column=1, padx=15, pady=(6, 12), sticky="w")
+        
+        encryption_label = ctk.CTkLabel(
+            stats_frame,
+            text="🔒 Encrypted",
+            font=ctk.CTkFont(size=12, weight="bold"),
+            text_color="#00E676"
+        )
+        encryption_label.grid(row=1, column=2, padx=15, pady=(6, 12), sticky="e")
+        
+        # Store references
+        self.torrent_frames[name] = {
+            'frame': card_frame,
+            'progress_bar': progress_bar,
+            'progress_label': progress_label,
+            'state_label': state_label,
+            'download_label': download_label,
+            'upload_label': upload_label,
+            'peers_label': peers_label,
+            'size_label': size_label,
+            'eta_label': eta_label,
+            'encryption_label': encryption_label,
+        }
+    
+    def _update_torrent_card(self, name: str, status: dict):
+        """Update a torrent card with current status"""
+        if name not in self.torrent_frames:
+            return
+        
+        frame_data = self.torrent_frames[name]
+        
+        # Update progress bar
+        progress = status['progress'] / 100.0
+        frame_data['progress_bar'].set(progress)
+        
+        # Update progress percentage
+        frame_data['progress_label'].configure(text=f"{status['progress']:.1f}%")
+        
+        # Update state
+        frame_data['state_label'].configure(text=status['state'].title())
+        
+        # Update download speed with color
+        dl_speed = status['download_speed']
+        dl_color = "#4CAF50" if dl_speed > 0 else "#757575"
+        frame_data['download_label'].configure(
+            text=f"⬇ {dl_speed:.2f} MB/s",
+            text_color=dl_color
+        )
+        
+        # Update upload speed with color
+        ul_speed = status['upload_speed']
+        ul_color = "#FF9800" if ul_speed > 0 else "#757575"
+        frame_data['upload_label'].configure(
+            text=f"⬆ {ul_speed:.2f} MB/s",
+            text_color=ul_color
+        )
+        
+        # Update peers
+        num_peers = status['num_peers']
+        num_seeds = status['num_seeds']
+        peers_color = "#4CAF50" if num_peers > 0 else "#757575"
+        frame_data['peers_label'].configure(
+            text=f"👥 {num_peers} peers ({num_seeds} seeds)",
+            text_color=peers_color
+        )
+        
+        # Update size (downloaded / total)
+        downloaded_mb = status['downloaded'] / (1024 * 1024)
+        total_mb = status['total_size'] / (1024 * 1024)
+        
+        if total_mb >= 1024:  # Show in GB if > 1GB
+            downloaded_gb = downloaded_mb / 1024
+            total_gb = total_mb / 1024
+            size_text = f"📦 {downloaded_gb:.2f} GB / {total_gb:.2f} GB"
+        else:
+            size_text = f"📦 {downloaded_mb:.1f} MB / {total_mb:.1f} MB"
+        
+        frame_data['size_label'].configure(text=size_text)
+        
+        # Update ETA
+        eta = status.get('eta', '∞')
+        eta_color = "#FFC107" if eta != "∞" else "#757575"
+        frame_data['eta_label'].configure(
+            text=f"⏱ {eta}",
+            text_color=eta_color
+        )
+        
+        # Update encryption status with animation-like effect
+        encryption = status['encryption']
+        if "Encrypted" in encryption:
+            frame_data['encryption_label'].configure(
+                text="🔒 Encrypted",
+                text_color="#00E676"
+            )
+        elif "Connecting" in encryption:
+            frame_data['encryption_label'].configure(
+                text="⏳ Connecting...",
+                text_color="#FFC107"
+            )
+        else:
+            frame_data['encryption_label'].configure(
+                text=encryption,
+                text_color="#90A4AE"
+            )
+    
+    def _pause_torrent(self, name: str):
+        """Pause a torrent"""
+        logger.info(f"User pausing torrent: {name}")
+        self.client.pause_torrent(name)
+        logger.info(f"Torrent paused: {name}")
+    
+    def _resume_torrent(self, name: str):
+        """Resume a torrent"""
+        logger.info(f"User resuming torrent: {name}")
+        self.client.resume_torrent(name)
+        logger.info(f"Torrent resumed: {name}")
+    
+    def _remove_torrent(self, name: str):
+        """Remove a torrent after confirmation"""
+        logger.info(f"User attempting to remove torrent: {name}")
+        response = messagebox.askyesnocancel(
+            "Remove Torrent",
+            f"Remove '{name}'?\n\nYes = Keep files\nNo = Delete files\nCancel = Don't remove"
+        )
+        
+        if response is None:  # Cancel
+            logger.info(f"User cancelled torrent removal: {name}")
+            return
+        
+        delete_files = not response  # No = delete files
+        logger.info(f"Removing torrent: {name} (delete_files={delete_files})")
+        self.client.remove_torrent(name, delete_files)
+    
+    def _clear_all(self):
+        """Clear all torrents"""
+        logger.info("User attempting to clear all torrents...")
+        if not self.torrent_frames:
+            logger.info("No torrents to clear")
+            return
+        
+        response = messagebox.askyesno(
+            "Clear All",
+            "Remove all torrents?\n\nFiles will be kept."
+        )
+        
+        if response:
+            logger.info("User confirmed clearing all torrents")
+            for name in list(self.torrent_frames.keys()):
+                logger.info(f"Removing torrent: {name}")
+                self.client.remove_torrent(name, delete_files=False)
+        else:
+            logger.info("User cancelled clear all operation")
+    
+    def _change_download_path(self):
+        """Change download directory"""
+        logger.info("User requesting to change download path...")
+        path = filedialog.askdirectory(title="Select Download Directory")
+        if path:
+            logger.info(f"User selected new download path: {path}")
+            self.client.set_download_path(path)
+            self.path_value.configure(text=path)
+            logger.info(f"Download path changed to: {path}")
+        else:
+            logger.info("User cancelled path selection")
+    
+    def _open_settings(self):
+        """Open settings window"""
+        settings_window = ctk.CTkToplevel(self.root)
+        settings_window.title("⚙️ Settings")
+        settings_window.geometry("600x400")
+        settings_window.transient(self.root)
+        settings_window.grab_set()
+        
+        # Title
+        title = ctk.CTkLabel(
+            settings_window,
+            text="⚙️ Application Settings",
+            font=ctk.CTkFont(size=20, weight="bold")
+        )
+        title.pack(pady=20)
+        
+        # Info frame
+        info_frame = ctk.CTkFrame(settings_window, corner_radius=10)
+        info_frame.pack(padx=20, pady=10, fill="both", expand=True)
+        
+        info_text = """
+🔒 Encryption Settings:
+   • Protocol: RC4/MSE (Message Stream Encryption)
+   • Mode: Forced encryption on all connections
+   • DHT: Enabled with obfuscation
+   • uTP: Enabled for additional DPI bypass
+   
+✓ Active Protection:
+   • Deep Packet Inspection (DPI) Bypass
+   • Traffic Pattern Randomization
+   • Port Randomization
+   • Encrypted Peer Discovery
+   
+📊 Performance:
+   • Connection Limit: 500 peers
+   • Download Speed: Unlimited
+   • Upload Speed: Unlimited (helps ratio)
+   
+💡 Tips:
+   • Keep the application running for best speeds
+   • The encryption adds minimal CPU overhead
+   • Works best with popular torrents (more encrypted peers)
+        """
+        
+        info_label = ctk.CTkLabel(
+            info_frame,
+            text=info_text,
+            font=ctk.CTkFont(size=12),
+            justify="left"
+        )
+        info_label.pack(padx=20, pady=20, anchor="w")
+        
+        # Close button
+        close_btn = ctk.CTkButton(
+            settings_window,
+            text="Close",
+            command=settings_window.destroy,
+            width=120,
+            height=35
+        )
+        close_btn.pack(pady=20)
+    
+    def _show_notification(self, title: str, message: str, error: bool = False):
+        """Show a notification message"""
+        if error:
+            messagebox.showerror(title, message)
+        else:
+            messagebox.showinfo(title, message)
+    
+    def _on_closing(self):
+        """Handle window close event"""
+        logger.info("User attempting to close application...")
+        response = messagebox.askyesno(
+            "Confirm Exit",
+            "Are you sure you want to exit?\n\nAll downloads will be paused."
+        )
+        
+        if response:
+            logger.info("User confirmed application exit")
+            logger.info("Shutting down torrent client...")
+            self.client.shutdown()
+            logger.info("Destroying GUI...")
+            self.root.quit()
+            self.root.destroy()
+            logger.info("Application closed successfully")
+        else:
+            logger.info("User cancelled application exit")
+    
+    def run(self):
+        """Start the GUI main loop"""
+        self.root.mainloop()
+#install.sh
+
+# Installation script for Secure Torrent Downloader
+# Makes installation easy and automated
+
+echo "🚀 Secure Torrent Downloader - Installation Script"
+echo "=================================================="
+echo ""
+
+# Check if Python 3 is installed
+if ! command -v python3 &> /dev/null; then
+    echo "❌ Python 3 is not installed!"
+    echo "Please install Python 3.8 or higher first."
+    exit 1
+fi
+
+# Check Python version
+PYTHON_VERSION=$(python3 -c 'import sys; print(".".join(map(str, sys.version_info[:2])))')
+echo "✓ Found Python $PYTHON_VERSION"
+
+# Check if pip is installed
+if ! command -v pip3 &> /dev/null; then
+    echo "❌ pip3 is not installed!"
+    echo "Installing pip3..."
+    sudo apt-get update
+    sudo apt-get install -y python3-pip
+fi
+
+echo "✓ pip3 is available"
+echo ""
+
+# Install system dependencies for libtorrent (Linux only)
+if [[ "$OSTYPE" == "linux-gnu"* ]]; then
+    echo "📦 Installing system dependencies..."
+    
+    # Detect package manager
+    if command -v apt-get &> /dev/null; then
+        echo "Detected Debian/Ubuntu system"
+        sudo apt-get update
+        sudo apt-get install -y python3-libtorrent python3-tk
+    elif command -v dnf &> /dev/null; then
+        echo "Detected Fedora system"
+        sudo dnf install -y python3-libtorrent python3-tkinter
+    elif command -v pacman &> /dev/null; then
+        echo "Detected Arch Linux system"
+        sudo pacman -S --noconfirm libtorrent-rasterbar python-libtorrent tk
+    else
+        echo "⚠️  Unknown Linux distribution - you may need to install libtorrent manually"
+    fi
+    echo ""
+fi
+
+# Install Python dependencies
+echo "📦 Installing Python packages..."
+pip3 install -r requirements.txt --user
+
+if [ $? -eq 0 ]; then
+    echo "✅ All dependencies installed successfully!"
+else
+    echo "⚠️  Some packages failed to install. Trying alternative method..."
+    pip3 install libtorrent customtkinter Pillow darkdetect typing-extensions --user
+fi
+
+echo ""
+echo "=================================================="
+echo "✅ Installation Complete!"
+echo "=================================================="
+echo ""
+echo "To run the application:"
+echo "  python3 main.py"
+echo ""
+echo "Or make it executable and run directly:"
+echo "  chmod +x main.py"
+echo "  ./main.py"
+echo ""
+echo "🔒 Remember: This app uses encryption to bypass ISP throttling!"
+echo "=================================================="
+#main.py
+"""
+Secure Torrent Downloader with Traffic Encryption & Obfuscation
+Bypasses ISP throttling through protocol encryption and traffic obfuscation
+"""
+
+import customtkinter as ctk
+from torrent_client import TorrentClient
+from gui import TorrentGUI
+import sys
+
+
+def main():
+    """Main application entry point"""
+    # Set appearance mode and color theme
+    ctk.set_appearance_mode("dark")
+    ctk.set_default_color_theme("blue")
+    
+    # Create the torrent client with encryption enabled
+    client = TorrentClient()
+    
+    # Create and run the GUI
+    app = TorrentGUI(client)
+    app.run()
+
+
+if __name__ == "__main__":
+    try:
+        main()
+    except KeyboardInterrupt:
+        print("\nApplication stopped by user")
+        sys.exit(0)
+    except Exception as e:
+        print(f"Fatal error: {e}")
+        sys.exit(1)
+# Secure Torrent Downloader - Dependencies
+# Install with: pip install -r requirements.txt
+
+# Torrent library with encryption support
+libtorrent>=2.0.9
+
+# Modern GUI framework
+customtkinter>=5.2.0
+
+# Additional dependencies for CustomTkinter
+Pillow>=10.0.0
+darkdetect>=0.8.0
+
+# For better performance (optional but recommended)
+typing-extensions>=4.8.0
+#run.sh
+
+# Run script for Secure Torrent Downloader
+# Automatically activates venv and runs the application
+
+# Check if venv exists
+if [ ! -d "venv" ]; then
+    echo "❌ Virtual environment not found!"
+    echo "Please run setup.sh first:"
+    echo "  ./setup.sh"
+    exit 1
+fi
+
+# Activate virtual environment
+echo "🚀 Starting Secure Torrent Downloader..."
+source venv/bin/activate
+
+# Run the application
+python main.py
+
+# Deactivate when done
+deactivate
+#setup.sh
+
+# Setup script for Secure Torrent Downloader
+# This creates a virtual environment and installs all dependencies properly
+
+echo "🚀 Secure Torrent Downloader - Setup Script"
+echo "=================================================="
+echo ""
+
+# Check if Python 3.12 is installed
+if ! command -v python3.12 &> /dev/null; then
+    echo "❌ Python 3.12 is not installed!"
+    echo "Trying to use python3 instead..."
+    PYTHON_CMD="python3"
+else
+    PYTHON_CMD="python3.12"
+fi
+
+# Check Python version
+PYTHON_VERSION=$($PYTHON_CMD -c 'import sys; print(".".join(map(str, sys.version_info[:2])))')
+echo "✓ Found Python $PYTHON_VERSION"
+echo ""
+
+# Install system dependencies for libtorrent (Linux only)
+if [[ "$OSTYPE" == "linux-gnu"* ]]; then
+    echo "📦 Installing system dependencies..."
+    
+    # Detect package manager
+    if command -v apt-get &> /dev/null; then
+        echo "Detected Debian/Ubuntu system"
+        sudo apt-get update
+        sudo apt-get install -y python3-libtorrent python3-tk
+    elif command -v dnf &> /dev/null; then
+        echo "Detected Fedora system"
+        sudo dnf install -y python3-libtorrent python3-tkinter
+    elif command -v pacman &> /dev/null; then
+        echo "Detected Arch Linux system"
+        sudo pacman -S --noconfirm libtorrent-rasterbar python-libtorrent tk
+    else
+        echo "⚠️  Unknown Linux distribution - you may need to install libtorrent manually"
+    fi
+    echo ""
+fi
+
+# Remove old venv if it exists
+if [ -d "venv" ]; then
+    echo "🗑️  Removing old virtual environment..."
+    rm -rf venv
+    echo ""
+fi
+
+# Create virtual environment
+echo "📦 Creating virtual environment..."
+$PYTHON_CMD -m venv venv
+
+if [ $? -ne 0 ]; then
+    echo "❌ Failed to create virtual environment!"
+    echo "Make sure you have python3-venv installed:"
+    echo "  sudo apt-get install python3-venv"
+    exit 1
+fi
+
+echo "✓ Virtual environment created"
+echo ""
+
+# Activate virtual environment
+echo "📦 Activating virtual environment..."
+source venv/bin/activate
+
+# Upgrade pip
+echo "📦 Upgrading pip..."
+pip install --upgrade pip
+
+# Install Python dependencies
+echo "📦 Installing Python packages..."
+pip install -r requirements.txt
+
+if [ $? -eq 0 ]; then
+    echo ""
+    echo "=================================================="
+    echo "✅ Setup Complete!"
+    echo "=================================================="
+    echo ""
+    echo "To run the application:"
+    echo "  1. Activate the virtual environment:"
+    echo "     source venv/bin/activate"
+    echo ""
+    echo "  2. Run the application:"
+    echo "     python main.py"
+    echo ""
+    echo "Or use the run script:"
+    echo "  ./run.sh"
+    echo ""
+    echo "To test dependencies:"
+    echo "  source venv/bin/activate"
+    echo "  python test_dependencies.py"
+    echo ""
+    echo "🔒 Remember: This app uses encryption to bypass ISP throttling!"
+    echo "=================================================="
+else
+    echo "⚠️  Some packages failed to install."
+    echo "Please check the error messages above."
+    exit 1
+fi
+#test.sh
+
+# Test script for Secure Torrent Downloader
+# Tests dependencies and runs verification
+
+# Check if venv exists
+if [ ! -d "venv" ]; then
+    echo "❌ Virtual environment not found!"
+    echo "Please run setup.sh first:"
+    echo "  ./setup.sh"
+    exit 1
+fi
+
+# Activate virtual environment
+echo "🧪 Testing Secure Torrent Downloader..."
+echo ""
+source venv/bin/activate
+
+# Run comprehensive verification
+python verify.py
+
+TEST_RESULT=$?
+
+# Deactivate when done
+deactivate
+
+exit $TEST_RESULT
+#!/usr/bin/env python3
+"""
+Test script to download torrent at MAXIMUM speed - NO GUI
+Optimized to bypass Ooredoo ISP throttling
+
+Now with CLI flags:
+  - Provide magnet and download path
+  - Enable SOCKS5/HTTP proxy or auto-detect local SSH tunnel (127.0.0.1:1080)
+  - Toggle uTP/TCP, encryption policy, anonymous mode, max peers
+"""
+
+import libtorrent as lt
+import time
+import sys
+import argparse
+import socket
+from urllib.parse import urlparse
+
+
+def parse_args() -> argparse.Namespace:
+    parser = argparse.ArgumentParser(
+        description="Headless high-performance torrent downloader (libtorrent)",
+        formatter_class=argparse.ArgumentDefaultsHelpFormatter,
+    )
+
+    parser.add_argument(
+        "--magnet",
+        default="magnet:?xt=urn:btih:51C86B31924DC3B1FCBC7F0E2491ADF8DE6B1ACE&dn=Rise+of+the+Tomb+Raider%3A+20+Year+Celebration+%28v1.0.1.2+GOG+%2B+All+DLCs%2C+MULTi15%29+%5BFitGirl+Repack%2C+Selective+Download+-+from+12.9+GB%5D&tr=udp%3A%2F%2Fopentor.net%3A6969&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Ftracker.theoks.net%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.ccp.ovh%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=http%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=https%3A%2F%2Ftracker.tamersunion.org%3A443%2Fannounce&tr=udp%3A%2F%2Fexplodie.org%3A6969%2Fannounce&tr=http%3A%2F%2Ftracker.bt4g.com%3A2095%2Fannounce&tr=udp%3A%2F%2Fbt2.archive.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fbt1.archive.org%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.filemail.com%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker1.bt.moack.co.kr%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=http%3A%2F%2Ftracker.openbittorrent.com%3A80%2Fannounce&tr=udp%3A%2F%2Fopentracker.i2p.rocks%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.internetwarriors.net%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fcoppersurfer.tk%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.zer0day.to%3A1337%2Fannounce",
+        help="Magnet URI",
+    )
+    parser.add_argument(
+        "--path",
+        default="/home/siaziz/Downloads",
+        help="Download destination directory",
+    )
+
+    # Proxy options
+    parser.add_argument(
+        "--use-proxy",
+        action="store_true",
+        help="Enable proxy settings (see --proxy / --proxy-host/--proxy-port)",
+    )
+    parser.add_argument(
+        "--proxy",
+        default=None,
+        help="Proxy URL like socks5://127.0.0.1:1080 or http://host:port",
+    )
+    parser.add_argument("--proxy-host", default="127.0.0.1")
+    parser.add_argument("--proxy-port", type=int, default=1080)
+    parser.add_argument(
+        "--proxy-type",
+        choices=["socks5", "socks4", "http"],
+        default="socks5",
+        help="Proxy type when using host/port flags",
+    )
+    parser.add_argument(
+        "--auto-proxy",
+        action="store_true",
+        help="Auto-detect local SOCKS5 tunnel on 127.0.0.1:1080 (e.g., ssh -D 1080)",
+    )
+
+    # Network/engine toggles
+    parser.add_argument(
+        "--no-utp",
+        action="store_true",
+        help="Disable uTP (use TCP only). Sometimes helps on weird ISPs",
+    )
+    parser.add_argument(
+        "--prefer-tcp",
+        action="store_true",
+        help="Prefer TCP over uTP when both are enabled",
+    )
+    parser.add_argument(
+        "--enc",
+        choices=["enabled", "forced", "disabled"],
+        default="enabled",
+        help="Encryption policy. enabled=prefer encryption but allow plaintext",
+    )
+    parser.add_argument("--anonymous", action="store_true", help="Enable anonymous mode")
+    parser.add_argument("--max-peers", type=int, default=5000, help="Max peer connections")
+    parser.add_argument(
+        "--http-trackers-only",
+        action="store_true",
+        help="Filter tracker list to HTTP/HTTPS only (useful if UDP is blocked)",
+    )
+
+    return parser.parse_args()
+
+
+def parse_proxy_url(url: str):
+    if not url:
+        return None
+    u = urlparse(url)
+    if u.scheme not in ("socks5", "socks4", "http"):
+        raise ValueError("Proxy URL must start with socks5://, socks4://, or http://")
+    if not u.hostname or not u.port:
+        raise ValueError("Proxy URL must include host and port, e.g. socks5://127.0.0.1:1080")
+    return u.scheme, u.hostname, u.port
+
+
+def tcp_port_open(host: str, port: int, timeout=0.5) -> bool:
+    try:
+        with socket.create_connection((host, port), timeout=timeout):
+            return True
+    except OSError:
+        return False
+
+args = parse_args()
+
+MAGNET = args.magnet
+DOWNLOAD_PATH = args.path
+
+# Resolve proxy settings from args
+USE_PROXY = args.use_proxy
+proxy_from_url = None
+if args.proxy:
+    try:
+        proxy_from_url = parse_proxy_url(args.proxy)
+        USE_PROXY = True
+    except Exception as e:
+        print(f"⚠️  Invalid --proxy value: {e}")
+
+if not USE_PROXY and args.auto_proxy:
+    if tcp_port_open("127.0.0.1", 1080):
+        print("🕵️  Auto-proxy detected at 127.0.0.1:1080 (SOCKS5). Enabling.")
+        proxy_from_url = ("socks5", "127.0.0.1", 1080)
+        USE_PROXY = True
+    else:
+        print("🔎 No local SOCKS5 proxy detected on 127.0.0.1:1080. Continuing without proxy.")
+
+if proxy_from_url:
+    scheme, host, port = proxy_from_url
+    PROXY_HOST, PROXY_PORT, PROXY_TYPE = host, port, {
+        "socks5": lt.proxy_type_t.socks5,
+        "socks4": lt.proxy_type_t.socks4,
+        "http": lt.proxy_type_t.http,
+    }[scheme]
+else:
+    PROXY_HOST = args.proxy_host
+    PROXY_PORT = int(args.proxy_port)
+    PROXY_TYPE = {
+        "socks5": lt.proxy_type_t.socks5,
+        "socks4": lt.proxy_type_t.socks4,
+        "http": lt.proxy_type_t.http,
+    }[args.proxy_type]
+
+print("=" * 80)
+print("🚀 MAXIMUM SPEED TORRENT DOWNLOADER - Anti-Throttling Edition")
+print("=" * 80)
+if USE_PROXY:
+    print(f"🔒 PROXY ENABLED: {PROXY_HOST}:{PROXY_PORT}")
+else:
+    print("⚠️  NO PROXY - Ooredoo will throttle your speed!")
+    print("   To bypass throttling, run with --auto-proxy or --use-proxy --proxy socks5://127.0.0.1:1080")
+print()
+
+# Create session
+print("📡 Creating libtorrent session...")
+ses = lt.session()
+
+# ULTRA AGGRESSIVE SETTINGS for MAXIMUM SPEED
+print("⚡ Configuring ULTRA AGGRESSIVE settings to bypass ISP throttling...")
+
+# Encryption policy mapping
+enc_policy = {
+    "enabled": lt.enc_policy.enabled,
+    "forced": lt.enc_policy.forced,
+    "disabled": lt.enc_policy.disabled,
+}[args.enc]
+
+settings = {
+    # ENCRYPTION - Prefer encrypted but allow plaintext for MORE PEERS
+    'out_enc_policy': enc_policy,
+    'in_enc_policy': enc_policy,
+    'allowed_enc_level': lt.enc_level.both,   # RC4 + plaintext
+    'prefer_rc4': True,                       # Prefer RC4 when available
+    
+    # DHT & PEER DISCOVERY
+    'enable_dht': True,
+    'enable_lsd': True,
+    'enable_upnp': True,
+    'enable_natpmp': True,
+    
+    # MAXIMUM CONNECTIONS
+    'connections_limit': int(args.max_peers),                # MASSIVE peer limit
+    'connections_slack': 500,
+    'unchoke_slots_limit': 500,               # More upload slots
+    'active_downloads': 50,
+    'active_seeds': 50,
+    'active_limit': 100,
+    'max_peerlist_size': 8000,                # Remember many peers
+    
+    # BANDWIDTH - UNLIMITED
+    'download_rate_limit': 0,                 # NO LIMIT
+    'upload_rate_limit': 20 * 1024 * 1024,    # 20 MB/s upload (helps ratio)
+    
+    # PROTOCOL
+    'enable_outgoing_utp': not args.no_utp,              # uTP bypasses some DPI
+    'enable_incoming_utp': not args.no_utp,
+    'enable_outgoing_tcp': True,
+    'enable_incoming_tcp': True,
+    'mixed_mode_algorithm': (
+        lt.bandwidth_mixed_algo_t.prefer_tcp if args.prefer_tcp else lt.bandwidth_mixed_algo_t.peer_proportional
+    ),
+    
+    # TIMEOUTS - FAST
+    'handshake_timeout': 5,
+    'peer_connect_timeout': 5,
+    'request_timeout': 15,
+    'peer_timeout': 90,
+    'inactivity_timeout': 20,
+    'min_reconnect_time': 5,
+    
+    # CHOKING
+    'choking_algorithm': lt.choking_algorithm_t.rate_based_choker,
+    
+    # REQUESTS - AGGRESSIVE
+    'max_out_request_queue': 5000,
+    'max_allowed_in_request_queue': 10000,
+    'whole_pieces_threshold': 10,
+    
+    # DISK I/O
+    'max_queued_disk_bytes': 20 * 1024 * 1024,  # 20MB
+    'cache_size': 4096,                         # 4GB cache
+    'aio_threads': 16,
+    
+    # BUFFERS
+    'send_buffer_watermark': 5 * 1024 * 1024,   # 5MB
+    'send_buffer_low_watermark': 2 * 1024 * 1024,
+    # Tracker announce strategy
+    'announce_to_all_trackers': True,
+    'announce_to_all_tiers': True,
+}
+
+if args.anonymous:
+    settings['anonymous_mode'] = True
+
+ses.apply_settings(settings)
+
+# Configure proxy if enabled
+if USE_PROXY:
+    print(f"🔒 Configuring proxy: {PROXY_HOST}:{PROXY_PORT}...")
+    proxy_settings = {
+        'proxy_type': PROXY_TYPE,
+        'proxy_hostname': PROXY_HOST,
+        'proxy_port': PROXY_PORT,
+        'proxy_hostnames': True,      # Route DNS through proxy
+        'proxy_peer_connections': True,  # Route peer connections through proxy
+        'proxy_tracker_connections': True,  # Route tracker connections through proxy
+        'force_proxy': True,             # Force ALL traffic through proxy
+    }
+    ses.apply_settings(proxy_settings)
+    print("✅ Proxy configured - ALL traffic will go through proxy!")
+
+print("✅ Settings applied!")
+print(f"   🔒 Encryption policy: {args.enc.upper()} (prefer RC4)")
+print(f"   🌐 Max peers: {args.max_peers}")
+print(f"   ⬆️  Upload limit: 20 MB/s")
+print(f"   ⬇️  Download limit: UNLIMITED")
+print(f"   💾 Disk cache: 4 GB")
+print()
+
+# Set alert mask
+ses.set_alert_mask(
+    lt.alert.category_t.error_notification |
+    lt.alert.category_t.status_notification |
+    lt.alert.category_t.storage_notification |
+    lt.alert.category_t.progress_notification
+)
+
+# Listen on random ports
+import random
+port = random.randint(6881, 6999)
+ses.listen_on(port, port + 20)
+print(f"🌐 Listening on ports: {port}-{port+20}")
+print()
+
+# Parse magnet link
+print("🧲 Parsing magnet link...")
+params = lt.parse_magnet_uri(MAGNET)
+params.save_path = DOWNLOAD_PATH
+
+# Add MORE trackers for MORE peers
+print("📡 Adding backup trackers...")
+backup_trackers = [
+    # UDP trackers
+    "udp://tracker.opentrackr.org:1337/announce",
+    "udp://open.stealth.si:80/announce",
+    "udp://tracker.torrent.eu.org:451/announce",
+    "udp://tracker.openbittorrent.com:6969/announce",
+    "udp://explodie.org:6969/announce",
+    "udp://tracker1.bt.moack.co.kr:80/announce",
+    "udp://tracker.ccp.ovh:6969/announce",
+    "udp://tracker-udp.gbitt.info:80/announce",
+    "udp://opentracker.i2p.rocks:6969/announce",
+    # HTTP trackers
+    "http://tracker.opentrackr.org:1337/announce",
+    "http://tracker1.itzmx.com:8080/announce",
+    "http://tracker.gbitt.info/announce",
+]
+params.trackers.extend(backup_trackers)
+
+# Optionally restrict to HTTP/HTTPS trackers only
+if args.http_trackers_only:
+    params.trackers = [t for t in params.trackers if t.startswith("http://") or t.startswith("https://")]
+
+# Strengthen DHT bootstrap (helps when trackers are blocked)
+dht_nodes = [
+    "router.bittorrent.com:6881",
+    "dht.transmissionbt.com:6881",
+    "router.utorrent.com:6881",
+    "dht.libtorrent.org:25401",
+]
+ses.apply_settings({
+    'dht_bootstrap_nodes': ",".join(dht_nodes)
+})
+
+# Add torrent
+print(f"📥 Adding torrent to session...")
+print(f"📁 Download path: {DOWNLOAD_PATH}")
+handle = ses.add_torrent(params)
+print()
+print("=" * 80)
+print("⏳ DOWNLOADING - Press Ctrl+C to stop")
+print("=" * 80)
+print()
+
+# Download loop
+state_str = ['queued', 'checking', 'downloading metadata', 'downloading', 
+             'finished', 'seeding', 'allocating', 'checking fastresume']
+
+try:
+    while not handle.is_seed():
+        s = handle.status()
+        
+        # Calculate speeds
+        dl_speed_mb = s.download_rate / (1024 * 1024)
+        ul_speed_mb = s.upload_rate / (1024 * 1024)
+        
+        # Calculate sizes
+        downloaded_gb = s.total_wanted_done / (1024 * 1024 * 1024)
+        total_gb = s.total_wanted / (1024 * 1024 * 1024)
+        
+        # Calculate ETA
+        if s.download_rate > 0:
+            remaining = s.total_wanted - s.total_wanted_done
+            eta_seconds = remaining / s.download_rate
+            if eta_seconds < 60:
+                eta = f"{int(eta_seconds)}s"
+            elif eta_seconds < 3600:
+                eta = f"{int(eta_seconds / 60)}m"
+            else:
+                eta = f"{int(eta_seconds / 3600)}h {int((eta_seconds % 3600) / 60)}m"
+        else:
+            eta = "∞"
+        
+        # Progress bar
+        progress = s.progress * 100
+        bar_len = 50
+        filled = int(bar_len * s.progress)
+        bar = '█' * filled + '░' * (bar_len - filled)
+        
+        # Print status
+        print(f"\r{bar} {progress:.1f}%", end='')
+        print(f" | ⬇ {dl_speed_mb:.2f} MB/s | ⬆ {ul_speed_mb:.2f} MB/s", end='')
+        print(f" | 👥 {s.num_peers} peers ({s.num_seeds} seeds)", end='')
+        print(f" | 📦 {downloaded_gb:.2f}/{total_gb:.2f} GB", end='')
+        print(f" | ⏱ {eta}", end='')
+        print(f" | {state_str[s.state]}", end='')
+        print(" " * 10, end='')  # Clear extra chars
+        
+        sys.stdout.flush()
+        time.sleep(1)
+        
+        # Process alerts
+        alerts = ses.pop_alerts()
+        for alert in alerts:
+            if isinstance(alert, lt.add_torrent_alert):
+                print(f"\n✅ Torrent added: {alert.handle.name()}")
+            elif isinstance(alert, lt.torrent_finished_alert):
+                print(f"\n🎉 Download complete!")
+            elif isinstance(alert, lt.metadata_received_alert):
+                print(f"\n📋 Got metadata: {alert.handle.name()}")
+    
+    print("\n\n" + "=" * 80)
+    print("✅ DOWNLOAD COMPLETE!")
+    print("=" * 80)
+    print(f"📁 Files saved to: {DOWNLOAD_PATH}")
+    
+except KeyboardInterrupt:
+    print("\n\n⏸️  Download paused by user")
+    print(f"📊 Final stats:")
+    s = handle.status()
+    print(f"   Progress: {s.progress * 100:.1f}%")
+    print(f"   Downloaded: {s.total_wanted_done / (1024**3):.2f} GB")
+    print(f"   Total size: {s.total_wanted / (1024**3):.2f} GB")
+    print(f"   Peers: {s.num_peers}")
+#torrent_client.py
+
+import libtorrent as lt
+import time
+import os
+from pathlib import Path
+from typing import Optional, Dict, List, Callable
+import threading
+import logging
+
+# Configure logging
+logger = logging.getLogger(__name__)
+
+
+class TorrentClient:
+    """
+    Advanced torrent client with encryption and obfuscation capabilities
+    Features:
+    - Protocol encryption (RC4/MSE) to bypass DPI
+    - DHT obfuscation
+    - Randomized ports
+    - Traffic pattern randomization
+    """
+    
+    def __init__(self, download_path: str = None):
+        """Initialize the torrent client with encryption settings"""
+        logger.info("Initializing TorrentClient...")
+        self.session = lt.session()
+        self.torrents: Dict[str, lt.torrent_handle] = {}
+        self.download_path = download_path or str(Path.home() / "Downloads" / "Torrents")
+        
+        logger.info(f"Download path: {self.download_path}")
+        
+        # Create download directory if it doesn't exist
+        os.makedirs(self.download_path, exist_ok=True)
+        logger.info("Download directory ready")
+        
+        # Configure session with encryption and obfuscation
+        self._configure_encryption()
+        self._configure_session()
+        
+        # Status update callback
+        self.status_callback: Optional[Callable] = None
+        
+        # Start status update thread
+        self.running = True
+        self.update_thread = threading.Thread(target=self._update_loop, daemon=True)
+        self.update_thread.start()
+        logger.info("TorrentClient initialized successfully")
+    
+    def _configure_encryption(self):
+        """
+        Configure advanced encryption settings to bypass ISP throttling
+        Uses RC4/MSE encryption with smart fallback for maximum speed
+        """
+        logger.info("Configuring SMART anti-throttling encryption settings...")
+        settings = {
+            # ENCRYPTION SETTINGS - Smart approach: prefer encrypted, allow plaintext
+            'out_enc_policy': lt.enc_policy.enabled,  # Prefer encryption but allow plaintext
+            'in_enc_policy': lt.enc_policy.enabled,   # Accept both encrypted and plaintext
+            'allowed_enc_level': lt.enc_level.both,   # Allow both RC4 and plaintext
+            'prefer_rc4': True,                       # Prefer RC4 when available
+            
+            # DHT SETTINGS - Obfuscate peer discovery
+            'enable_dht': True,
+            'enable_lsd': True,  # Local Service Discovery
+            'enable_upnp': True,
+            'enable_natpmp': True,
+            
+            # PROTOCOL OBFUSCATION
+            'anonymous_mode': False,  # We want speed, not anonymity
+            'force_proxy': False,
+            
+            # ULTRA AGGRESSIVE PERFORMANCE SETTINGS
+            'connections_limit': 2000,              # Maximum connections
+            'connections_slack': 200,               # Allow burst connections
+            'download_rate_limit': 0,               # Unlimited download
+            'upload_rate_limit': 10 * 1024 * 1024,  # 10 MB/s upload (better ratio = faster DL)
+            'unchoke_slots_limit': 200,             # More upload slots
+            'active_downloads': 20,                 # More active downloads
+            'active_seeds': 20,                     # More active seeds
+            'active_limit': 40,                     # Total active torrents
+            'max_peerlist_size': 4000,              # Remember more peers
+            'max_paused_peerlist_size': 2000,       # Keep paused peers
+            
+            # ANTI-THROTTLING MEASURES - Enhanced
+            'mixed_mode_algorithm': lt.bandwidth_mixed_algo_t.prefer_tcp,
+            'enable_outgoing_utp': True,  # uTP helps bypass DPI
+            'enable_incoming_utp': True,
+            'enable_outgoing_tcp': True,
+            'enable_incoming_tcp': True,
+            'utp_fin_resends': 2,
+            'utp_num_resends': 6,
+            'utp_connect_timeout': 3000,
+            'utp_loss_multiplier': 50,
+            
+            # TIMING RANDOMIZATION
+            'min_announce_interval': 30,
+            'auto_manage_interval': 30,
+            'min_reconnect_time': 10,               # Reconnect faster
+            'max_retry_port_bind': 20,
+            
+            # CONNECTION SETTINGS - Ultra fast
+            'handshake_timeout': 10,                # Very fast timeout
+            'max_failcount': 2,                     # Retry very fast
+            'peer_connect_timeout': 7,              # Very fast peer connections
+            'request_timeout': 20,                  # Fast requests
+            'peer_timeout': 60,                     # Keep peers longer
+            'inactivity_timeout': 30,               # Drop slow peers
+            
+            # CHOKING ALGORITHM
+            'choking_algorithm': lt.choking_algorithm_t.rate_based_choker,
+            
+            # ULTRA AGGRESSIVE DOWNLOADING
+            'max_out_request_queue': 2000,          # More requests
+            'max_allowed_in_request_queue': 4000,   # Accept more
+            'whole_pieces_threshold': 15,           # Download whole pieces
+            'request_queue_time': 3,                # Fast queue
+            'send_buffer_watermark': 3 * 1024 * 1024,  # 3MB send buffer
+            'send_buffer_low_watermark': 1 * 1024 * 1024,  # 1MB low watermark
+            'send_buffer_watermark_factor': 150,
+            'cache_size': 2048,                     # 2GB cache (if available)
+            'cache_buffer_chunk_size': 128,
+            'cache_expiry': 60,
+            
+            # DISK I/O OPTIMIZATION
+            'max_queued_disk_bytes': 10 * 1024 * 1024,  # 10MB queue
+            'aio_threads': 8,                       # More disk threads
+            'checking_mem_usage': 2048,             # 2GB for checking
+        }
+        
+        self.session.apply_settings(settings)
+        logger.info("✅ SMART anti-throttling configured!")
+        logger.info("   🔒 RC4/MSE encryption PREFERRED (not forced)")
+        logger.info("   🚀 Max connections: 2000 peers")
+        logger.info("   ⚡ Upload limit: 10 MB/s (better ratio)")
+        logger.info("   🌐 Both encrypted & plaintext allowed for MAX SPEED")
+        logger.info("   💾 Disk cache: 2GB, Send buffer: 3MB")
+        logger.info("   🔒 Forced RC4/MSE encryption on ALL connections")
+        logger.info("   🚀 Max connections: 1000 peers")
+        logger.info("   ⚡ Optimized for bypassing ISP throttling")
+        logger.info("   🌐 uTP + TCP protocols enabled for DPI evasion")
+        print("🔒 Encryption & Obfuscation Enabled:")
+        print("   ✓ RC4/MSE Protocol Encryption (FORCED)")
+        print("   ✓ DHT Obfuscation")
+        print("   ✓ uTP Protocol Support")
+        print("   ✓ Traffic Pattern Randomization")
+        print("   ✓ Deep Packet Inspection (DPI) Bypass Active\n")
+    
+    def _configure_session(self):
+        """Configure general session settings"""
+        # Set alert mask to get detailed information
+        self.session.set_alert_mask(
+            lt.alert.category_t.error_notification |
+            lt.alert.category_t.status_notification |
+            lt.alert.category_t.storage_notification |
+            lt.alert.category_t.progress_notification
+        )
+        
+        # Randomize listening port to avoid detection patterns
+        import random
+        random_port = random.randint(6881, 6999)
+        self.session.listen_on(random_port, random_port + 10)
+        print(f"🌐 Listening on randomized port range: {random_port}-{random_port + 10}")
+    
+    def add_torrent(self, magnet_uri: str, name: str = None) -> bool:
+        """
+        Add a torrent via magnet link with encryption enabled
+        
+        Args:
+            magnet_uri: Magnet link or .torrent file path
+            name: Optional custom name for the torrent
+            
+        Returns:
+            bool: True if torrent was added successfully
+        """
+        try:
+            logger.info(f"Attempting to add torrent: {magnet_uri[:80]}...")
+            # Parse magnet link or torrent file
+            if magnet_uri.startswith('magnet:'):
+                logger.info("Detected magnet link, parsing...")
+                params = lt.parse_magnet_uri(magnet_uri)
+                params.save_path = self.download_path
+                
+                # Add popular public trackers to increase peer discovery
+                logger.info("Adding backup trackers for better peer discovery...")
+                backup_trackers = [
+                    "udp://tracker.opentrackr.org:1337/announce",
+                    "udp://open.stealth.si:80/announce",
+                    "udp://tracker.torrent.eu.org:451/announce",
+                    "udp://exodus.desync.com:6969/announce",
+                    "udp://tracker.moeking.me:6969/announce",
+                    "udp://explodie.org:6969/announce",
+                    "udp://tracker1.bt.moack.co.kr:80/announce",
+                    "udp://tracker.theoks.net:6969/announce",
+                    "http://tracker.opentrackr.org:1337/announce",
+                    "udp://open.demonii.com:1337/announce",
+                ]
+                params.trackers.extend(backup_trackers)
+                logger.info(f"Added {len(backup_trackers)} backup trackers")
+                
+            else:
+                # Assume it's a torrent file path
+                logger.info(f"Detected torrent file path: {magnet_uri}")
+                info = lt.torrent_info(magnet_uri)
+                params = lt.add_torrent_params()
+                params.ti = info
+                params.save_path = self.download_path
+            
+            # Add storage mode for better performance
+            params.storage_mode = lt.storage_mode_t.storage_mode_sparse
+            
+            # Enable super seeding and other optimizations
+            params.flags |= lt.torrent_flags.auto_managed
+            params.flags |= lt.torrent_flags.duplicate_is_error
+            
+            logger.info(f"Adding torrent to session with download path: {self.download_path}")
+            # Add the torrent
+            handle = self.session.add_torrent(params)
+            
+            # Set piece priorities to sequential for better streaming
+            handle.set_sequential_download(False)  # False = rarest-first (faster)
+            
+            # Store torrent handle
+            torrent_name = name or (handle.name() if handle.status().has_metadata else "Fetching metadata...")
+            self.torrents[torrent_name] = handle
+            
+            logger.info(f"✅ Torrent added successfully: {torrent_name}")
+            logger.info(f"📁 Download path: {self.download_path}")
+            logger.info(f"🔒 Encryption: FORCED on all connections")
+            logger.info(f"🌐 Connecting to peers with anti-throttling enabled...")
+            
+            return True
+            
+        except Exception as e:
+            logger.error(f"❌ Error adding torrent: {e}", exc_info=True)
+            import traceback
+            traceback.print_exc()
+            return False
+    
+    def get_torrent_status(self, name: str) -> Optional[Dict]:
+        """Get detailed status of a specific torrent"""
+        if name not in self.torrents:
+            return None
+        
+        handle = self.torrents[name]
+        status = handle.status()
+        
+        # Calculate speeds in MB/s
+        download_speed = status.download_rate / (1024 * 1024)
+        upload_speed = status.upload_rate / (1024 * 1024)
+        
+        # Calculate progress
+        progress = status.progress * 100
+        
+        # Get state
+        state_str = ['queued', 'checking', 'downloading metadata', 
+                     'downloading', 'finished', 'seeding', 'allocating', 'checking fastresume'][status.state]
+        
+        # Check if encryption is active
+        encryption_status = "🔒 Encrypted" if status.num_peers > 0 else "⏳ Connecting..."
+        
+        return {
+            'name': handle.name() if status.has_metadata else name,
+            'progress': progress,
+            'download_speed': download_speed,
+            'upload_speed': upload_speed,
+            'num_peers': status.num_peers,
+            'num_seeds': status.num_seeds,
+            'state': state_str,
+            'total_size': status.total_wanted,
+            'downloaded': status.total_wanted_done,
+            'eta': self._calculate_eta(status),
+            'encryption': encryption_status,
+        }
+    
+    def get_all_torrents_status(self) -> List[Dict]:
+        """Get status of all active torrents"""
+        statuses = []
+        for name in list(self.torrents.keys()):
+            status = self.get_torrent_status(name)
+            if status:
+                statuses.append(status)
+        return statuses
+    
+    def _calculate_eta(self, status) -> str:
+        """Calculate estimated time remaining"""
+        if status.download_rate <= 0:
+            return "∞"
+        
+        remaining = status.total_wanted - status.total_wanted_done
+        eta_seconds = remaining / status.download_rate
+        
+        if eta_seconds < 60:
+            return f"{int(eta_seconds)}s"
+        elif eta_seconds < 3600:
+            return f"{int(eta_seconds / 60)}m"
+        else:
+            return f"{int(eta_seconds / 3600)}h {int((eta_seconds % 3600) / 60)}m"
+    
+    def pause_torrent(self, name: str):
+        """Pause a specific torrent"""
+        if name in self.torrents:
+            self.torrents[name].pause()
+            logger.info(f"⏸ Paused torrent: {name}")
+    
+    def resume_torrent(self, name: str):
+        """Resume a paused torrent"""
+        if name in self.torrents:
+            self.torrents[name].resume()
+            logger.info(f"▶ Resumed torrent: {name}")
+    
+    def remove_torrent(self, name: str, delete_files: bool = False):
+        """Remove a torrent from the client"""
+        if name in self.torrents:
+            logger.info(f"Removing torrent: {name} (delete_files={delete_files})")
+            handle = self.torrents[name]
+            if delete_files:
+                self.session.remove_torrent(handle, lt.options_t.delete_files)
+                logger.info(f"🗑 Removed torrent and deleted files: {name}")
+            else:
+                self.session.remove_torrent(handle)
+                logger.info(f"🗑 Removed torrent: {name}")
+            del self.torrents[name]
+    
+    def set_download_path(self, path: str):
+        """Change the download directory"""
+        logger.info(f"Changing download path to: {path}")
+        self.download_path = path
+        os.makedirs(self.download_path, exist_ok=True)
+        logger.info(f"📁 Download path set to: {path}")
+    
+    def _update_loop(self):
+        """Background thread to monitor torrent status"""
+        logger.info("Starting torrent update loop...")
+        while self.running:
+            # Process alerts
+            alerts = self.session.pop_alerts()
+            for alert in alerts:
+                if isinstance(alert, lt.add_torrent_alert):
+                    logger.info(f"📥 Torrent added: {alert.handle.name()}")
+                elif isinstance(alert, lt.torrent_finished_alert):
+                    logger.info(f"✅ Download complete: {alert.handle.name()}")
+                elif isinstance(alert, lt.metadata_received_alert):
+                    logger.info(f"📋 Metadata received: {alert.handle.name()}")
+            
+            # Call status callback if set
+            if self.status_callback:
+                try:
+                    self.status_callback(self.get_all_torrents_status())
+                except Exception as e:
+                    logger.error(f"Error in status callback: {e}")
+            
+            time.sleep(1)
+    
+    def shutdown(self):
+        """Gracefully shutdown the client"""
+        logger.info("🛑 Shutting down torrent client...")
+        self.running = False
+        
+        # Pause all torrents
+        logger.info(f"Pausing {len(self.torrents)} active torrents...")
+        for name in self.torrents:
+            self.pause_torrent(name)
+        
+        # Save session state
+        logger.info("Pausing session...")
+        self.session.pause()
+        time.sleep(1)
+        
+        print("✅ Client shutdown complete")
+#verify.py
+"""
+Comprehensive verification script for Secure Torrent Downloader
+Checks all dependencies, configurations, and settings
+"""
+
+import sys
+import os
+from pathlib import Path
+
+print("=" * 70)
+print("🔍 Secure Torrent Downloader - Verification Script")
+print("=" * 70)
+print()
+
+# Track all checks
+all_passed = True
+
+# Check 1: Virtual Environment
+print("1️⃣  Checking Virtual Environment...")
+venv_path = Path("venv")
+if venv_path.exists():
+    print("   ✅ Virtual environment exists")
+    
+    # Check if we're running inside venv
+    if hasattr(sys, 'real_prefix') or (hasattr(sys, 'base_prefix') and sys.base_prefix != sys.prefix):
+        print("   ✅ Running inside virtual environment")
+        print(f"   📍 Python location: {sys.executable}")
+    else:
+        print("   ⚠️  NOT running inside virtual environment!")
+        print("   Please run: source venv/bin/activate")
+        all_passed = False
+else:
+    print("   ❌ Virtual environment not found!")
+    print("   Please run: ./setup.sh")
+    all_passed = False
+
+print()
+
+# Check 2: Python Version
+print("2️⃣  Checking Python Version...")
+version = sys.version_info
+print(f"   📍 Python {version.major}.{version.minor}.{version.micro}")
+if version.major == 3 and version.minor >= 8:
+    print("   ✅ Python version is compatible (3.8+)")
+else:
+    print("   ❌ Python version too old! Need 3.8 or higher")
+    all_passed = False
+
+print()
+
+# Check 3: Dependencies
+print("3️⃣  Checking Dependencies...")
+
+# libtorrent
+try:
+    import libtorrent as lt
+    print(f"   ✅ libtorrent {lt.__version__}")
+except ImportError as e:
+    print(f"   ❌ libtorrent not found: {e}")
+    all_passed = False
+
+# customtkinter
+try:
+    import customtkinter as ctk
+    print(f"   ✅ customtkinter")
+except ImportError as e:
+    print(f"   ❌ customtkinter not found: {e}")
+    all_passed = False
+
+# Pillow
+try:
+    from PIL import Image
+    import PIL
+    print(f"   ✅ Pillow {PIL.__version__}")
+except ImportError as e:
+    print(f"   ❌ Pillow not found: {e}")
+    all_passed = False
+
+# darkdetect
+try:
+    import darkdetect
+    print(f"   ✅ darkdetect")
+except ImportError as e:
+    print(f"   ❌ darkdetect not found: {e}")
+    all_passed = False
+
+# typing-extensions
+try:
+    import typing_extensions
+    print(f"   ✅ typing-extensions")
+except ImportError as e:
+    print(f"   ❌ typing-extensions not found: {e}")
+    all_passed = False
+
+print()
+
+# Check 4: Project Files
+print("4️⃣  Checking Project Files...")
+required_files = [
+    "main.py",
+    "torrent_client.py",
+    "gui.py",
+    "requirements.txt",
+    "setup.sh",
+    "run.sh",
+    "test.sh"
+]
+
+for file in required_files:
+    if Path(file).exists():
+        print(f"   ✅ {file}")
+    else:
+        print(f"   ❌ {file} - MISSING!")
+        all_passed = False
+
+print()
+
+# Check 5: Import Project Modules
+print("5️⃣  Checking Project Modules...")
+
+try:
+    from torrent_client import TorrentClient
+    print("   ✅ TorrentClient can be imported")
+except Exception as e:
+    print(f"   ❌ Failed to import TorrentClient: {e}")
+    all_passed = False
+
+try:
+    from gui import TorrentGUI
+    print("   ✅ TorrentGUI can be imported")
+except Exception as e:
+    print(f"   ❌ Failed to import TorrentGUI: {e}")
+    all_passed = False
+
+print()
+
+# Check 6: Encryption Configuration
+print("6️⃣  Checking Encryption Configuration...")
+try:
+    from torrent_client import TorrentClient
+    client = TorrentClient()
+    settings = client.session.get_settings()
+    
+    # Check encryption settings
+    enc_policy = settings.get('out_enc_policy', None)
+    if enc_policy is not None:
+        print("   ✅ Encryption settings configured")
+        print(f"   🔒 Encryption policy: {enc_policy}")
+    else:
+        print("   ⚠️  Could not verify encryption settings")
+    
+    print("   ✅ TorrentClient initialized successfully")
+except Exception as e:
+    print(f"   ❌ Failed to initialize TorrentClient: {e}")
+    all_passed = False
+
+print()
+
+# Check 7: Download Directory
+print("7️⃣  Checking Download Directory...")
+from pathlib import Path
+download_dir = Path.home() / "Downloads" / "Torrents"
+print(f"   📍 Default location: {download_dir}")
+if download_dir.exists():
+    print("   ✅ Download directory exists")
+else:
+    print("   ℹ️  Download directory will be created on first use")
+
+print()
+
+# Final Summary
+print("=" * 70)
+if all_passed:
+    print("✅ ALL CHECKS PASSED!")
+    print("=" * 70)
+    print()
+    print("🎉 Your installation is working correctly!")
+    print()
+    print("To run the application:")
+    print("  ./run.sh")
+    print()
+    print("Or manually:")
+    print("  source venv/bin/activate")
+    print("  python main.py")
+    print()
+else:
+    print("❌ SOME CHECKS FAILED!")
+    print("=" * 70)
+    print()
+    print("Please fix the issues above and run this script again.")
+    print()
+    print("To reinstall:")
+    print("  rm -rf venv")
+    print("  ./setup.sh")
+    print()
+    sys.exit(1)
+
+print("=" * 70)

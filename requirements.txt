@@ -1,0 +1,15 @@
+# Secure Torrent Downloader - Dependencies
+# Install with: pip install -r requirements.txt
+
+# Torrent library with encryption support
+libtorrent>=2.0.9
+
+# Modern GUI framework
+customtkinter>=5.2.0
+
+# Additional dependencies for CustomTkinter
+Pillow>=10.0.0
+darkdetect>=0.8.0
+
+# For better performance (optional but recommended)
+typing-extensions>=4.8.0
