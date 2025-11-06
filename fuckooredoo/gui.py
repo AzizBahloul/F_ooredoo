@@ -6,7 +6,7 @@ import threading
 import os
 import subprocess
 from typing import Optional
-from torrent_client import TorrentClient
+from .torrent_client import TorrentClient
 import logging
 
 # Configure logging

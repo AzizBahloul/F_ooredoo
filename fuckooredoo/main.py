@@ -1,12 +1,12 @@
-#main.py
+#fuckooredoo/main.py
 """
 Secure Torrent Downloader with Tor-based Anti-Throttling
 Bypasses ISP throttling through Tor network routing and traffic encryption
 """
 
 import customtkinter as ctk
-from torrent_client import TorrentClient
-from gui import TorrentGUI
+from .torrent_client import TorrentClient
+from .gui import TorrentGUI
 import sys
 
 

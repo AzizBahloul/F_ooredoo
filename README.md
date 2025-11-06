@@ -1,382 +1,416 @@
-# 🚀 Secure Torrent Downloader - Tor-Based Anti-Throttling Edition
+# 🖕 F**k Ooredoo - The Ultimate "Fuck You" to ISP Throttling
 
-A modern, encrypted torrent client specifically designed to bypass ISP throttling through Tor network routing and advanced traffic encryption.
+**Version 1.0.2** by **Mohamed Aziz Bahloul**
 
-## 🔒 Features
+## 😤 Why This Exists
 
-### Anti-Throttling Technology
-- **Tor Network Routing**: All traffic routed through Tor SOCKS5 proxy for maximum ISP bypass
-- **RC4/MSE Protocol Encryption**: Forced encryption on all BitTorrent connections
-- **Deep Packet Inspection (DPI) Bypass**: Traffic obfuscation combined with Tor routing
-- **DHT Obfuscation**: Encrypted peer discovery through Tor
-- **uTP Protocol Support**: Additional layer to bypass throttling
-- **Randomized Ports**: Avoids common BitTorrent port blocking
-- **Traffic Pattern Randomization**: Makes it harder to identify torrent traffic
+So Ooredoo thinks they can **fuck with our torrents**, huh? They think throttling our bandwidth and blocking our downloads is cool? **FUCK THAT NOISE.**
 
-### User Experience
-- **Modern GUI**: Built with CustomTkinter for a sleek, dark-themed interface
-- **Real-time Progress**: Live download/upload speeds and peer count
-- **Tor Status**: Visual indicator showing Tor proxy is active
-- **Magnet Link Support**: Just paste and download
-- **.torrent File Support**: Browse and select torrent files
-- **Multi-torrent Management**: Download multiple files simultaneously
+This isn't just a torrent client. This is a **middle finger wrapped in encryption, delivered through Tor, straight to Ooredoo's DPI systems.**
 
-## 📋 Requirements
-
-- Python 3.8 or higher
-- Linux, Windows, or macOS
-- Tor (installed and running)
-- Internet connection (obviously!)
-
-## 🛠️ Installation
-
-### Automated Setup (Recommended)
-
-The easiest way to set up the project is to use the setup script:
-
-```bash
-# Navigate to the project directory
-cd /home/siaziz/Desktop/foreedo
-
-# Make the setup script executable
-chmod +x setup.sh
-
-# Run the setup script
-./setup.sh
-```
-
-This will:
-- Create a virtual environment (venv)
-- Install all system dependencies
-- Install all Python packages
-- Configure everything properly
-
-### Install Tor
-
-**Ubuntu/Debian:**
-```bash
-sudo apt update
-sudo apt install tor
-```
-
-**Fedora:**
-```bash
-sudo dnf install tor
-```
-
-**Arch Linux:**
-```bash
-sudo pacman -S tor
-```
-
-### Manual Installation (Alternative)
-
-If you prefer to install manually:
-
-**Step 1: Install System Dependencies (Linux)**
-
-```bash
-# Ubuntu/Debian
-sudo apt-get update
-sudo apt-get install python3-libtorrent python3-tk python3-venv tor
-
-# Fedora
-sudo dnf install python3-libtorrent python3-tkinter tor
-
-# Arch Linux
-sudo pacman -S libtorrent-rasterbar python-libtorrent tk tor
-```
-
-**Step 2: Create Virtual Environment**
-
-```bash
-# Create virtual environment with Python 3.12 (or python3)
-python3.12 -m venv venv
-
-# Activate the virtual environment
-source venv/bin/activate
-```
-
-**Step 3: Install Python Packages**
-
-```bash
-# Upgrade pip
-pip install --upgrade pip
-
-# Install dependencies
-pip install -r requirements.txt
-```
-
-## 🚀 Running the Application
-
-### Using the Run Script (Recommended)
-
-```bash
-# Make the run script executable (first time only)
-chmod +x run.sh
-
-# Run the application
-./run.sh
-```
-
-The run script will:
-- Check if Tor is running and start it if needed
-- Activate the virtual environment
-- Launch the GUI application with Tor proxy enabled
-
-### Running Tests
-
-```bash
-# Make the test script executable (first time only)
-chmod +x test_run.sh
-
-# Run tests with Tor proxy
-./test_run.sh --magnet "your_magnet_link_here"
-```
-
-The test script will:
-- Check if Tor is running and start it if needed
-- Activate the virtual environment
-- Run the torrent test with Tor proxy
-
-### Manual Run
-
-```bash
-# Activate virtual environment
-source venv/bin/activate
-
-# Run the application
-python main.py
-
-# When done, deactivate
-deactivate
-```
-
-### Headless Max-Speed CLI (No GUI)
-
-Use the included headless downloader to test maximum speed and bypass ISP throttling:
-
-```bash
-# Activate venv
-source venv/bin/activate
-
-# Show options
-python test_download.py --help
-
-# Run normally (no proxy)
-python test_download.py
-
-# Auto-detect local SSH SOCKS5 tunnel on 127.0.0.1:1080 (if you ran: ssh -D 1080 user@server)
-python test_download.py --auto-proxy
-
-# Explicitly use a proxy
-python test_download.py --use-proxy --proxy socks5://127.0.0.1:1080
-
-# Try TCP-only if your ISP filters UDP/uTP
-python test_download.py --no-utp --prefer-tcp
-
-# Force encryption (may reduce peers)
-python test_download.py --enc forced
-```
-
-See `BYPASS_OOREDOO.md` for more details on setting up an SSH tunnel or VPN.
-
-### Testing Dependencies
-
-```bash
-# Make test script executable (first time only)
-chmod +x test.sh
-
-# Run tests
-./test.sh
-```
-
-Or manually:
-
-```bash
-# Activate virtual environment
-source venv/bin/activate
-
-# Test dependencies
-python test_dependencies.py
-
-# Deactivate
-deactivate
-```
-
-## 🎯 How to Use
-
-### Adding a Torrent
-
-1. **Copy a Magnet Link**:
-   - Find a magnet link (starts with `magnet:?xt=urn:btih:...`)
-   - Copy it to your clipboard
-
-2. **Add to Downloader**:
-   - Paste the magnet link in the input field
-   - Click "⬇ Download" button
-   - The download will start automatically with encryption enabled!
-
-3. **Or Use a .torrent File**:
-   - Click "📁 Browse .torrent" button
-   - Select your .torrent file
-   - Click "⬇ Download"
-
-### Managing Downloads
-
-- **Pause**: Click the ⏸ button on any torrent
-- **Resume**: Click the ▶ button on a paused torrent
-- **Remove**: Click the 🗑 button to remove a torrent
-- **Change Download Location**: Click "Change" in the bottom status bar
-
-### Monitoring Encryption
-
-- Each torrent card shows "🔒 Encrypted" when encryption is active
-- Green color indicates the connection is properly encrypted
-- The status changes to "⏳ Connecting..." while finding encrypted peers
-
-## 🔧 Configuration
-
-The application is pre-configured with optimal settings for bypassing ISP throttling:
-
-- **Encryption Mode**: Forced (only encrypted connections)
-- **Protocol**: RC4/MSE (Message Stream Encryption)
-- **DHT**: Enabled with obfuscation
-- **uTP**: Enabled for additional DPI bypass
-- **Connection Limit**: 500 peers
-- **Speeds**: Unlimited (adjust in code if needed)
-
-To view settings, click the "⚙️ Settings" button in the application.
-
-## 📁 Project Structure
-
-```
-fuckOreedooo/
-├── main.py              # Application entry point
-├── torrent_client.py    # Core torrent client with encryption
-├── gui.py               # Modern GUI implementation
-├── requirements.txt     # Python dependencies
-└── README.md           # This file
-```
-
-## 🛡️ How It Works
-
-### Bypassing ISP Throttling
-
-1. **Protocol Encryption**: All BitTorrent traffic is encrypted using RC4/MSE, making it unreadable to ISP Deep Packet Inspection (DPI)
-
-2. **Traffic Obfuscation**: The encrypted traffic doesn't have the typical BitTorrent handshake pattern that ISPs look for
-
-3. **Port Randomization**: Using random ports instead of common BitTorrent ports (6881-6889) avoids simple port-based blocking
-
-4. **uTP Protocol**: Micro Transport Protocol adds another layer that helps bypass some throttling mechanisms
-
-5. **DHT Obfuscation**: Peer discovery is also encrypted, hiding your torrent activity
-
-### Why This Works
-
-ISPs typically throttle torrent traffic by:
-- Detecting BitTorrent handshake patterns
-- Monitoring specific ports
-- Deep packet inspection of unencrypted traffic
-
-By encrypting everything and randomizing patterns, your torrent traffic looks like regular HTTPS traffic to your ISP.
-
-## 💡 Tips for Best Performance
-
-1. **Keep the Application Running**: Don't close it immediately after downloads finish - seeding helps the network and your ratio
-
-2. **Popular Torrents**: Work best because more peers support encryption
-
-3. **VPN Combo**: For maximum privacy, combine this with a VPN (though encryption alone defeats throttling)
-
-4. **Firewall**: Make sure to allow the application through your firewall
-
-5. **Antivirus**: Some antivirus software may flag torrent clients - add an exception if needed
-
-## ⚠️ Legal Notice
-
-This software is designed to bypass unfair ISP throttling on **legal torrent traffic**. 
-
-- Always respect copyright laws in your country
-- Only download content you have the right to download
-- This tool is for educational purposes and legitimate use cases
-- The developers are not responsible for any misuse
-
-## 🐛 Troubleshooting
-
-### "No module named 'libtorrent'" Error
-
-Install libtorrent:
-```bash
-pip install libtorrent
-```
-
-If that doesn't work, install system package:
-```bash
-# Ubuntu/Debian
-sudo apt-get install python3-libtorrent
-```
-
-### "No module named 'customtkinter'" Error
-
-Install CustomTkinter:
-```bash
-pip install customtkinter
-```
-
-### Downloads Are Slow
-
-- Check if you have encrypted peers (look for the 🔒 indicator)
-- Try a more popular torrent (more peers = better speeds)
-- Verify your internet connection speed
-- Some ISPs still throttle even with encryption (consider using a VPN)
-
-### Application Won't Start
-
-Make sure you have Python 3.8+:
-```bash
-python3 --version
-```
-
-Install all dependencies:
-```bash
-pip install -r requirements.txt
-```
-
-## 🔮 Future Enhancements
-
-Potential features for future versions:
-- Built-in VPN integration
-- Bandwidth limiting options
-- RSS feed support for automatic downloads
-- Download scheduling
-- Torrent search integration
-- Mobile companion app
-
-## 📝 License
-
-This project is provided as-is for educational purposes. Use responsibly and legally.
-
-## 🤝 Contributing
-
-Feel free to improve this project! Some areas that could use work:
-- Better error handling
-- More encryption options
-- Performance optimizations
-- Additional obfuscation techniques
-
-## 📧 Support
-
-If you encounter issues:
-1. Check the Troubleshooting section above
-2. Make sure all dependencies are installed
-3. Verify you're using Python 3.8+
-4. Check your firewall settings
+[![PyPI version](https://img.shields.io/pypi/v/fuckooredoo.svg)](https://pypi.org/project/fuckooredoo/)
+[![Fuck Throttling](https://img.shields.io/badge/Fuck-Throttling-red.svg)]()
+[![Fuck DPI](https://img.shields.io/badge/Fuck-DPI-orange.svg)]()
+[![Made With Spite](https://img.shields.io/badge/Made%20With-Spite-purple.svg)]()
 
 ---
 
-**Made with ❤️ to fight unfair ISP throttling**
+## 🔥 What Makes This Special?
 
-*Remember: Encryption is your right. Privacy matters.* 🔒
+### It Says "Fuck You" to Ooredoo in 7 Different Ways:
 
+1. **🧅 Tor Routing** - All your traffic goes through Tor. Ooredoo can't see shit.
+2. **🔒 RC4/MSE Encryption** - Every single packet is encrypted. Good luck reading that, assholes.
+3. **🎭 Traffic Obfuscation** - Your torrent traffic looks like HTTPS. Fuck their pattern recognition.
+4. **🎲 Random Ports** - Different port every time. No more port blocking bullshit.
+5. **🕵️ DHT Obfuscation** - Even peer discovery is encrypted. Can't block what you can't see.
+6. **⚡ uTP Protocol** - Extra layer of "go fuck yourself" to their DPI.
+7. **🎪 Traffic Randomization** - Makes your torrent traffic look completely innocent.
+
+### The Result?
+
+**Ooredoo's throttling system can go fuck itself. Seriously.**
+
+---
+
+## 🎯 The Features (A.K.A. "Fuck You" Features)
+
+### 🖕 Anti-Throttling Arsenal
+- **Tor Network Routing**: Because fuck Ooredoo's packet inspection
+- **Forced Encryption**: RC4/MSE on EVERY connection - no exceptions, no mercy
+- **DPI Bypass**: Deep Packet Inspection? More like Deep Packet FUCK YOU
+- **DHT Through Tor**: Even finding peers is anonymous and encrypted
+- **Smart Speed Optimization**: 2000+ peer connections, 10MB/s upload for better ratios
+- **Ultra-Aggressive Settings**: We're not here to play nice
+
+### 🎨 User Experience (Because We're Not Total Savages)
+- **Modern Dark UI**: CustomTkinter because we have standards (unlike Ooredoo)
+- **Real-time Stats**: Watch as your torrents fly past Ooredoo's throttling attempts
+- **Tor Status Indicator**: Green checkmark = Ooredoo is crying
+- **Magnet Link Support**: Copy, paste, watch Ooredoo fail
+- **Multi-torrent Management**: Download all the things while Ooredoo watches helplessly
+- **Cross-Platform**: Windows, Linux, macOS - fuck Ooredoo everywhere
+
+---
+
+## 💀 Requirements
+
+- **Python 3.8+** - To run the code
+- **Tor** - To flip off Ooredoo properly
+- **Internet** - Even throttled Ooredoo internet works (barely)
+- **Attitude** - You should be at least 60% angry at ISP throttling
+
+---
+
+## 🚀 Installation (Let's Fucking Go)
+
+### Step 1: Install Tor (Your New Best Friend)
+
+**Ubuntu/Debian** (Fuck yeah, open source):
+```bash
+sudo apt update && sudo apt install tor
+sudo systemctl start tor
+# Watch Ooredoo's throttling become useless
+```
+
+**Fedora** (For the cool kids):
+```bash
+sudo dnf install tor
+sudo systemctl start tor
+```
+
+**Arch** (I use Arch btw):
+```bash
+sudo pacman -S tor
+sudo systemctl start tor
+```
+
+**macOS** (Even Apple users deserve freedom):
+```bash
+brew install tor
+brew services start tor
+```
+
+**Windows** (Yes, even you):
+- Download Tor Browser: [torproject.org](https://www.torproject.org/download/)
+- Or: `choco install tor`
+
+### Step 2: Install This Badass Tool
+
+```bash
+pip install fuckooredoo
+```
+
+### Step 3: Launch and Watch Magic Happen
+
+```bash
+fuckooredoo
+```
+
+**What happens next:**
+- ✅ Checks if Tor is ready to fuck shit up
+- ✅ Verifies Ooredoo can't see your traffic
+- ✅ Launches the most beautiful "fuck you" to ISP throttling ever created
+- ✅ Routes EVERYTHING through Tor with military-grade encryption
+
+---
+
+## 🎮 How to Use This Beast
+
+### Basic Mode (For Beginners)
+
+1. **Start the app:**
+   ```bash
+   fuckooredoo
+   ```
+
+2. **Add a magnet link:**
+   - Copy any magnet link (the ones Ooredoo hates)
+   - Paste that shit in the input field
+   - Click "⬇ Download"
+   - Watch Ooredoo's throttling fail miserably
+
+3. **Or use a .torrent file:**
+   - Click "📁 Browse .torrent"
+   - Select your file
+   - Watch the magic
+
+### Headless Mode (For Servers and Extra Badassery)
+
+```bash
+# Basic headless mode
+fuckooredoo --headless
+
+# With magnet link
+fuckooredoo --headless --magnet "magnet:?xt=urn:btih:..."
+```
+
+### Managing Downloads
+
+- **⏸ Pause**: When you need a break from watching Ooredoo fail
+- **▶ Resume**: To resume watching Ooredoo fail
+- **🗑 Remove**: Clean up completed downloads
+- **📂 Change Path**: Store your files wherever the fuck you want
+
+---
+
+## 🛡️ How We Fuck Ooredoo's Throttling
+
+### The Technical "Fuck You"
+
+1. **Step 1: Tor Routing**
+   - Every single bit goes through Tor (port 9050)
+   - Ooredoo sees: `????????`
+   - Actual traffic: `YOUR GLORIOUS TORRENTS`
+
+2. **Step 2: RC4/MSE Encryption**
+   - All BitTorrent traffic is encrypted with RC4
+   - Ooredoo's DPI: *confused screaming*
+   - Your downloads: **MAXIMUM SPEED**
+
+3. **Step 3: Traffic Obfuscation**
+   - Makes torrent traffic look like normal HTTPS
+   - Ooredoo: "Is this... Netflix?"
+   - You: "Sure, let's go with that 😏"
+
+4. **Step 4: Random Everything**
+   - Random ports every session
+   - Random timing patterns
+   - Random packet sizes
+   - Ooredoo's pattern detection: **COMPLETELY FUCKED**
+
+### Why This Works
+
+Because Ooredoo's throttling is:
+- ❌ Lazy as fuck
+- ❌ Based on obvious patterns
+- ❌ Vulnerable to basic encryption
+- ❌ No match for Tor + Encryption combo
+- ❌ Basically useless against this tool
+
+---
+
+## 🎪 The Stats (Prepare to Be Impressed)
+
+**Before F_ooredoo:**
+- Download speed: 50 KB/s (thanks Ooredoo, you cheap fucks)
+- Upload speed: lol what upload?
+- Peers: 5 (Ooredoo blocked the rest)
+- Your mood: 😠
+
+**After F_ooredoo:**
+- Download speed: **AS FAST AS YOUR ACTUAL CONNECTION**
+- Upload speed: **HELPING THE COMMUNITY**
+- Peers: **200+ concurrent connections**
+- Your mood: 😎🖕
+
+---
+
+## 💡 Pro Tips (From One Rebel to Another)
+
+### Optimization
+
+1. **Keep Tor Running 24/7**
+   - Tor is your shield against Ooredoo's bullshit
+   - The app shows a green checkmark when Tor is active
+   - If Tor stops, restart it ASAP
+
+2. **Choose Popular Torrents**
+   - More peers = faster downloads
+   - Even with encryption, popular = better
+
+3. **Seed After Downloading**
+   - Don't be a leech
+   - Sharing is caring
+   - Plus it pisses off Ooredoo even more
+
+4. **Firewall Configuration**
+   - Allow the app through your firewall
+   - Or just disable Windows Firewall (we're rebels, remember?)
+
+### Troubleshooting
+
+**"Tor is not running"**
+```bash
+# Fix that shit
+sudo systemctl start tor  # Linux
+brew services start tor    # macOS
+# Windows: Just run Tor Browser
+```
+
+**"Still slow"**
+- Check if Tor is ACTUALLY running (green checkmark)
+- Try a more popular torrent
+- Restart Tor: `sudo systemctl restart tor`
+- Blame Ooredoo's shit infrastructure
+
+**"No module named 'tkinter'"**
+```bash
+# Linux
+sudo apt install python3-tk
+
+# macOS  
+brew install python-tk
+
+# Windows
+Reinstall Python from python.org and CHECK THE TCL/TK BOX
+```
+
+---
+
+## ⚠️ Legal Shit (Because We Have To)
+
+**DISCLAIMER:**
+
+This tool is designed to bypass **UNJUST and ANTI-CONSUMER ISP throttling** on **LEGAL torrent traffic**.
+
+### What This Tool Is For:
+- ✅ Downloading Linux ISOs faster
+- ✅ Torrenting open-source software
+- ✅ Getting around unfair ISP throttling
+- ✅ Exercising your right to privacy
+- ✅ Telling Ooredoo to go fuck themselves (legally)
+
+### What This Tool Is NOT For:
+- ❌ Piracy (don't be a dick)
+- ❌ Illegal downloads (seriously, don't)
+- ❌ Copyright infringement (we're rebels, not criminals)
+
+### Real Talk:
+- Use this responsibly
+- Only download legal content
+- Respect copyright laws in your country
+- We're fighting against ISP fuckery, not breaking laws
+- The developers are not responsible if you do stupid shit
+
+**Remember:** We're here to fight UNFAIR THROTTLING, not promote piracy. Ooredoo's throttling is bullshit, but that doesn't mean piracy is okay.
+
+---
+
+## 🎓 How Ooredoo's Throttling Works (And Why It's Trash)
+
+### Their "Strategy" (LOL)
+
+1. **Deep Packet Inspection (DPI)**
+   - Looks at your traffic patterns
+   - Identifies BitTorrent-like behavior
+   - **Solution**: We encrypt everything, GG Ooredoo
+
+2. **Port Blocking**
+   - Blocks common BitTorrent ports (6881-6889)
+   - **Solution**: We use random ports, LOL
+
+3. **Protocol Detection**
+   - Tries to identify BitTorrent protocol
+   - **Solution**: Everything looks like HTTPS through Tor, nice try
+
+4. **Speed Limiting**
+   - Slows down "suspicious" traffic
+   - **Solution**: Our traffic isn't suspicious, it's encrypted AF
+
+### Why This Tool Destroys Their System
+
+```
+Ooredoo's DPI: "Is this BitTorrent?"
+Our Encrypted Traffic: "¯\_(ツ)_/¯"
+Ooredoo: "I... I don't know what to do"
+Your Downloads: *GOING AT FULL SPEED*
+```
+
+---
+
+## 🔮 Future Plans (Making Ooredoo Cry More)
+
+- [ ] Multiple proxy support (Tor + I2P + others)
+- [ ] Bandwidth scheduling (download at night, seed during day)
+- [ ] RSS feed automation (set it and forget it)
+- [ ] Even more aggressive anti-throttling
+- [ ] Mobile app (fuck Ooredoo on your phone too)
+- [ ] Built-in VPN support (triple encryption, why not?)
+- [ ] Statistics page showing "Money Saved by Not Paying for VPN"
+
+---
+
+## 🤝 Contributing
+
+Want to help make Ooredoo cry even more? Contributions welcome!
+
+**Areas where you can help:**
+- More anti-throttling techniques
+- Better obfuscation methods
+- Performance optimization
+- Cross-platform improvements
+- Documentation (make it even funnier)
+- Testing on different ISPs (fuck them all equally)
+
+---
+
+## 🏆 Hall of Fame
+
+**People Who Said "Fuck Ooredoo" Before It Was Cool:**
+- Mohamed Aziz Bahloul (that's me! 🎉)
+- You (once you use this tool)
+- Everyone who's tired of ISP bullshit
+
+---
+
+## 📱 Connect
+
+**Author:** Mohamed Aziz Bahloul  
+**GitHub:** [@AzizBahloul](https://github.com/AzizBahloul)  
+**Project:** [F_ooredoo](https://github.com/AzizBahloul/F_ooredoo)  
+**Email:** azizbahloul3@gmail.com
+
+**Found a bug?** Report it  
+**Have a feature idea?** Suggest it  
+**Want to say thanks?** ⭐ the repo  
+**Want to really say thanks?** Contribute code
+
+---
+
+## 📜 License
+
+MIT License - Because Freedom
+
+Copyright (c) 2025 Mohamed Aziz Bahloul
+
+**Translation:** Do whatever the fuck you want with this code, just don't sue me.
+
+---
+
+## 🎉 Final Words
+
+To Ooredoo: **This is what happens when you fuck with the wrong developers.**
+
+To Users: **Download responsibly, seed generously, and never let ISPs control you.**
+
+To Everyone Else: **Share this tool. Let's make ISP throttling a thing of the past.**
+
+---
+
+### Made with 😠 Anger, 💻 Code, and 🖕 Pure Spite
+
+**Remember:** We're not just downloading torrents. We're fighting for digital freedom, one encrypted packet at a time.
+
+#### Now go forth and download at full speed, you beautiful rebel. 🚀
+
+---
+
+## 🎸 Easter Eggs
+
+If you read this far, you're a real one. Here's a secret:
+
+```bash
+# The nuclear option (maximum fuck you to Ooredoo)
+export TORRENT_PEERS=9999
+export UPLOAD_SPEED=unlimited
+fuckooredoo --headless --aggressive-mode
+```
+
+*(Note: aggressive-mode doesn't actually exist, but wouldn't that be cool?)*
+
+---
+
+**P.S.** If you work for Ooredoo and you're reading this: Fix your shit. Stop throttling legal traffic. Do better.
+
+**P.P.S.** If you're a user: Enjoy your full-speed downloads! You deserve it! 🎊
