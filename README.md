@@ -1,7 +1,7 @@
 # F_ooredoo - The Ultimate Anti-Throttling Torrent Client
 
 **Version 1.0.2** by **Mohamed Aziz Bahloul**
-![Uploading image.png…]()
+<img width="1024" height="1024" alt="image" src="https://github.com/user-attachments/assets/0f27bf18-abe3-4b7d-8dbf-74511f36d2f1" />
 
 
 ## 😤 Why This Exists
@@ -65,6 +65,8 @@ This isn't just a torrent client. This is **a middle finger wrapped in encryptio
 - **Attitude** - You should be at least 60% angry at ISP throttling
 
 ---
+![Uploading image.png…]()
+
 
 ## 🚀 Installation (Let's Go)
 
