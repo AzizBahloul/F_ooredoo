@@ -1,4 +1,4 @@
-# 🖕 F**k Ooredoo - The Ultimate "Fuck You" to ISP Throttling
+# F**k Ooredoo - The Ultimate "Fuck You" to ISP Throttling
 
 **Version 1.0.2** by **Mohamed Aziz Bahloul**
 
