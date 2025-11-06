@@ -1,6 +1,8 @@
 # F_ooredoo - The Ultimate Anti-Throttling Torrent Client
 
 **Version 1.0.2** by **Mohamed Aziz Bahloul**
+![Uploading image.png…]()
+
 
 ## 😤 Why This Exists
 
@@ -14,6 +16,8 @@ This isn't just a torrent client. This is **a middle finger wrapped in encryptio
 [![Made With Spite](https://img.shields.io/badge/Made%20With-Spite-purple.svg)]()
 
 ---
+<img width="1284" height="793" alt="image" src="https://github.com/user-attachments/assets/7dae48b3-53f5-4f7e-af4a-da748e295497" />
+
 
 ## 🔥 What Makes This Special?
 
@@ -114,6 +118,9 @@ fuckooredoo
 - ✅ Routes EVERYTHING through Tor with military-grade encryption
 
 ---
+
+<img width="640" height="640" alt="image" src="https://github.com/user-attachments/assets/ddeafc0b-62a9-4919-9905-15a31674dbd6" />
+
 
 ## 🎮 How to Use This Beast
 
