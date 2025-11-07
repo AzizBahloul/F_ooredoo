@@ -1,0 +1,139 @@
+.TH FUCKOOREDOO 1 "November 2024" "fuckooredoo 1.0.2" "User Commands"
+.SH NAME
+fuckooredoo \- Secure Torrent Downloader with Tor-based Anti-Throttling
+.SH SYNOPSIS
+.B fuckooredoo
+[\fIOPTIONS\fR]
+.SH DESCRIPTION
+.B fuckooredoo
+is a powerful BitTorrent client designed to bypass ISP throttling through
+Tor network routing and advanced traffic encryption. It provides complete
+anonymity and prevents Deep Packet Inspection (DPI) from detecting torrent
+traffic.
+.PP
+The application routes all BitTorrent traffic through the Tor network with
+RC4/MSE encryption, making it impossible for ISPs to detect and throttle
+torrent downloads. It features a modern CustomTkinter GUI interface with
+real-time download statistics and multi-torrent management.
+.SH OPTIONS
+.TP
+.B \-\-headless
+Run in headless mode without GUI (for servers and automation)
+.TP
+.B \-\-magnet \fIMAGNET_LINK\fR
+Start download immediately with the specified magnet link (requires --headless)
+.TP
+.B \-\-torrent \fIFILE\fR
+Start download immediately with the specified .torrent file (requires --headless)
+.TP
+.B \-\-download-dir \fIDIRECTORY\fR
+Set custom download directory (default: ~/Downloads)
+.TP
+.B \-\-help, \-h
+Display help message and exit
+.TP
+.B \-\-version, \-v
+Display version information and exit
+.SH FEATURES
+.TP
+.B Tor Network Routing
+All traffic is routed through the Tor network for complete anonymization
+.TP
+.B RC4/MSE Encryption
+Military-grade encryption on every BitTorrent connection
+.TP
+.B DPI Bypass
+Deep Packet Inspection circumvention through traffic obfuscation
+.TP
+.B Traffic Randomization
+Makes torrent traffic appear as regular HTTPS traffic
+.TP
+.B Multi-torrent Support
+Download multiple torrents simultaneously with independent controls
+.TP
+.B Modern GUI
+Beautiful dark-themed CustomTkinter interface with real-time statistics
+.TP
+.B Magnet Link Support
+Direct magnet link handling and .torrent file support
+.SH REQUIREMENTS
+.TP
+.B Tor
+The Tor service must be running for the application to function properly.
+Install and start Tor:
+.PP
+.nf
+    sudo apt install tor
+    sudo systemctl start tor
+    sudo systemctl enable tor
+.fi
+.TP
+.B Python 3.8+
+Python 3.8 or higher with Tkinter support
+.TP
+.B libtorrent
+Python libtorrent bindings (python3-libtorrent)
+.SH EXAMPLES
+.TP
+Start with GUI:
+.nf
+    fuckooredoo
+.fi
+.TP
+Headless mode with magnet link:
+.nf
+    fuckooredoo --headless --magnet "magnet:?xt=urn:btih:..."
+.fi
+.TP
+Headless mode with .torrent file:
+.nf
+    fuckooredoo --headless --torrent /path/to/file.torrent
+.fi
+.TP
+Custom download directory:
+.nf
+    fuckooredoo --download-dir /custom/path
+.fi
+.SH FILES
+.TP
+.I ~/.config/fuckooredoo/
+User configuration directory
+.TP
+.I ~/Downloads/
+Default download directory
+.SH ENVIRONMENT
+.TP
+.B TOR_SOCKS_PORT
+Override default Tor SOCKS5 proxy port (default: 9050)
+.TP
+.B FUCKOOREDOO_DOWNLOAD_DIR
+Set default download directory
+.SH DIAGNOSTICS
+The application checks Tor connectivity on startup. If Tor is not running,
+you will see an error message. Ensure Tor is installed and running:
+.PP
+.nf
+    systemctl status tor
+.fi
+.PP
+Check Tor connectivity:
+.PP
+.nf
+    curl --socks5 127.0.0.1:9050 https://check.torproject.org
+.fi
+.SH AUTHOR
+Written by Mohamed Aziz Bahloul.
+.SH BUGS
+Report bugs to: https://github.com/AzizBahloul/F_ooredoo/issues
+.SH COPYRIGHT
+Copyright \(co 2024 Mohamed Aziz Bahloul.
+.br
+License: MIT License
+.SH SEE ALSO
+.BR tor (1),
+.BR transmission-cli (1),
+.BR deluge (1)
+.PP
+Full documentation: https://github.com/AzizBahloul/F_ooredoo
+.PP
+Project homepage: https://github.com/AzizBahloul/F_ooredoo

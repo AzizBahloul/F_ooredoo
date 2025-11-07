@@ -1,0 +1,54 @@
+fuckooredoo (1.0.4-2) noble; urgency=medium
+
+  * packaging: remove `debian/manpages` entry to avoid dh_installman searching
+    for the manpage in paths that don't exist in the chroot; the manpage is
+    already installed via `debian/install` and will be packaged. This avoids
+    spurious dh_installman failures observed in the amd64 noble build.
+
+ -- Mohamed Aziz Bahloul <azizbahloul3@gmail.com>  Fri, 07 Nov 2025 15:30:00 +0000
+
+fuckooredoo (1.0.4-1) noble; urgency=medium
+
+  * Upstream version bump to 1.0.4 and packaging release 1.0.4-1. This avoids
+    conflicting upstream tarball contents in Launchpad and provides the
+    manpage/install fixes in packaging.
+
+ -- Mohamed Aziz Bahloul <azizbahloul3@gmail.com>  Fri, 07 Nov 2025 15:20:00 +0000
+
+fuckooredoo (1.0.3-4) noble; urgency=medium
+
+  * packaging: install packaged manpage via debian/install so dh_installman
+    finds it during binary packaging in chroots (fixes dh_installman error
+    seen on amd64 builds where the manpage wasn't copied). Also include
+    previous packaging fixes.
+
+ -- Mohamed Aziz Bahloul <azizbahloul3@gmail.com>  Fri, 07 Nov 2025 15:10:00 +0000
+
+fuckooredoo (1.0.3-3) noble; urgency=medium
+
+  * packaging: stop installing non-existent PNG icon files from source
+    (Debian package ships the scalable SVG only). This prevents dh_install
+    missing-files failures in clean chroots (fixes amd64 build failure).
+
+ -- Mohamed Aziz Bahloul <azizbahloul3@gmail.com>  Fri, 07 Nov 2025 14:55:00 +0000
+
+fuckooredoo (1.0.3-2) noble; urgency=medium
+
+  * Build-Depends: add pybuild-plugin-pyproject to satisfy PEP517 pybuild plugin
+    required by pybuild when building from source (fixes Launchpad build failure)
+
+ -- Mohamed Aziz Bahloul <azizbahloul3@gmail.com>  Fri, 07 Nov 2025 14:40:00 +0100
+
+fuckooredoo (1.0.3-1) noble; urgency=medium
+
+  * Initial Debian package release
+  * Tor-based torrent client with anti-throttling features
+  * Complete ISP throttling bypass through Tor network
+  * RC4/MSE encryption for all connections
+  * Modern CustomTkinter GUI interface
+  * Multi-torrent download support
+  * Magnet link and .torrent file support
+  * DPI bypass and traffic obfuscation
+  * Cross-platform compatibility (Linux, Windows, macOS)
+
+ -- Mohamed Aziz Bahloul <azizbahloul3@gmail.com>  Fri, 07 Nov 2025 14:20:00 +0100

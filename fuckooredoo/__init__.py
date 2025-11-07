@@ -1,6 +1,6 @@
 #fuckooredoo/__init__.py
 
-__version__ = "1.0.2"
+__version__ = "1.0.4"
 __author__ = "Mohamed Aziz Bahloul"
 __email__ = "azizbahloul3@gmail.com"  
 

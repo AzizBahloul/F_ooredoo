@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "fuckooredoo"
-version = "1.0.2"
+version = "1.0.4"
 description = "Secure Torrent Downloader with Tor-based Anti-Throttling - Bypasses ISP throttling through Tor network routing and traffic encryption"
 readme = "README.md"
 authors = [

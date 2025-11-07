@@ -1,0 +1,17 @@
+# Install additional files
+README.md usr/share/doc/fuckooredoo/
+QUICK_REFERENCE.txt usr/share/doc/fuckooredoo/
+
+# Desktop integration
+fuckooredoo.desktop usr/share/applications/
+
+# Icons
+# We only ship the scalable SVG in the source. Do not list PNGs that are
+# not generated during the build — this prevents dh_install missing-files
+# failures in chroots. Icon packs or desktop environments can rasterize the
+# SVG as needed.
+fuckooredoo.svg usr/share/icons/hicolor/scalable/apps/
+
+# Man page: install the prewritten man page into the proper directory so
+# dh_installman doesn't fail when the chroot can't find it via other lookups.
+debian/fuckooredoo.1 usr/share/man/man1/

@@ -1,0 +1,31 @@
+#!/usr/bin/make -f
+
+# Debian rules file for fuckooredoo
+# Uses dh with Python 3 support
+
+export DH_VERBOSE=1
+export PYBUILD_NAME=fuckooredoo
+
+%:
+	dh $@ --with python3 --buildsystem=pybuild
+
+override_dh_auto_clean:
+	dh_auto_clean
+	rm -rf build dist *.egg-info
+	find . -name "*.pyc" -delete
+	find . -name "__pycache__" -delete
+
+override_dh_auto_build:
+	dh_auto_build
+
+override_dh_auto_install:
+	dh_auto_install
+	# Remove any test files if present
+	find debian/fuckooredoo -name "test_*" -delete
+	find debian/fuckooredoo -name "*_test.py" -delete
+
+override_dh_installdocs:
+	dh_installdocs README.md
+
+# Skip tests during build (can be enabled later if tests are added)
+override_dh_auto_test:

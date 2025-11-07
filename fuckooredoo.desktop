@@ -1,0 +1,24 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=F**k Ooredoo
+GenericName=Torrent Client
+Comment=Secure Torrent Downloader with Tor-based Anti-Throttling
+Exec=fuckooredoo
+Icon=fuckooredoo
+Terminal=false
+Categories=Network;FileTransfer;P2P;
+Keywords=torrent;download;tor;p2p;bittorrent;magnet;
+StartupNotify=true
+StartupWMClass=fuckooredoo
+
+# Additional metadata
+X-GNOME-UsesNotifications=true
+X-Ubuntu-Gettext-Domain=fuckooredoo
+
+# Actions for right-click menu
+Actions=Headless;
+
+[Desktop Action Headless]
+Name=Run Headless Mode
+Exec=fuckooredoo --headless

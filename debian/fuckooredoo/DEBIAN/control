@@ -1,0 +1,26 @@
+Package: fuckooredoo
+Version: 1.0.4-2
+Architecture: all
+Maintainer: Mohamed Aziz Bahloul <azizbahloul3@gmail.com>
+Installed-Size: 197
+Depends: python3-libtorrent, python3-pil, python3-typing-extensions, python3:any (>= 3.8~), python3-libtorrent (>= 2.0.9) | python3-libtorrent-rasterbar, python3-tk, tor
+Recommends: python3-pip
+Section: net
+Priority: optional
+Homepage: https://github.com/AzizBahloul/F_ooredoo
+Description: Secure Torrent Downloader with Tor-based Anti-Throttling
+ F**k Ooredoo is a powerful torrent client designed to bypass ISP throttling
+ through Tor network routing and advanced traffic encryption.
+ .
+ Key Features:
+  * Tor Network Routing - Complete traffic anonymization
+  * RC4/MSE Encryption - Military-grade packet encryption
+  * DPI Bypass - Deep Packet Inspection circumvention
+  * Modern CustomTkinter GUI - Beautiful dark-themed interface
+  * Multi-torrent Management - Download multiple torrents simultaneously
+  * Magnet Link Support - Direct magnet link handling
+  * Cross-Platform - Works on Linux, Windows, and macOS
+ .
+ This tool bypasses ISP bandwidth throttling by routing all BitTorrent
+ traffic through the Tor network with encrypted connections, making it
+ impossible for ISPs to detect and throttle torrent downloads.

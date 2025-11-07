@@ -1,0 +1,82 @@
+#!/bin/sh
+# postinst script for fuckooredoo
+
+set -e
+
+case "$1" in
+    configure)
+        # Ensure Tor service is enabled
+        if command -v systemctl >/dev/null 2>&1; then
+            if systemctl list-unit-files | grep -q tor.service; then
+                echo "Enabling Tor service..."
+                systemctl enable tor.service || true
+                
+                # Start Tor if not running
+                if ! systemctl is-active --quiet tor.service; then
+                    echo "Starting Tor service..."
+                    systemctl start tor.service || true
+                fi
+            fi
+        fi
+        
+        # Update desktop database for icon and menu integration
+        if command -v update-desktop-database >/dev/null 2>&1; then
+            update-desktop-database -q /usr/share/applications || true
+        fi
+        
+        # Update icon cache
+        if command -v gtk-update-icon-cache >/dev/null 2>&1; then
+            gtk-update-icon-cache -q -t -f /usr/share/icons/hicolor || true
+        fi
+        
+        echo ""
+        echo "╔═══════════════════════════════════════════════════════════╗"
+        echo "║     🖕 F**k Ooredoo - Installation Complete! 🖕          ║"
+        echo "╚═══════════════════════════════════════════════════════════╝"
+        echo ""
+        echo "✅ Package installed successfully!"
+        echo ""
+        echo "🚀 To launch the application, run:"
+        echo "   $ fuckooredoo"
+        echo ""
+        echo "📚 For help and documentation:"
+        echo "   $ fuckooredoo --help"
+        echo "   $ man fuckooredoo"
+        echo ""
+        echo "🔧 Tor service status:"
+        if systemctl is-active --quiet tor.service 2>/dev/null; then
+            echo "   ✅ Tor is running (ready to bypass ISP throttling!)"
+        else
+            echo "   ⚠️  Tor is not running. Start it with:"
+            echo "      $ sudo systemctl start tor"
+        fi
+        echo ""
+        echo "📖 Documentation: /usr/share/doc/fuckooredoo/"
+        echo "🌐 Homepage: https://github.com/AzizBahloul/F_ooredoo"
+        echo ""
+        echo "🎯 Ready to bypass ISP throttling! Fuck Ooredoo! 🎯"
+        echo ""
+    ;;
+
+    abort-upgrade|abort-remove|abort-deconfigure)
+    ;;
+
+    *)
+        echo "postinst called with unknown argument \`$1'" >&2
+        exit 1
+    ;;
+esac
+
+
+# Automatically added by dh_python3
+if command -v py3compile >/dev/null 2>&1; then
+	py3compile -p fuckooredoo -V 3.8-
+fi
+if command -v pypy3compile >/dev/null 2>&1; then
+	pypy3compile -p fuckooredoo -V 3.8- || true
+fi
+
+# End automatically added section
+
+
+exit 0

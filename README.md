@@ -97,8 +97,79 @@ brew services start tor
 
 ### Step 2: Install This Badass Tool
 
+#### Option A: APT Install (Ubuntu/Debian - Recommended) 🎯
+
+**The easiest way to install - includes all dependencies automatically:**
+
+```bash
+# Add the PPA repository
+sudo add-apt-repository ppa:azizbahloul/fuckooredoo
+sudo apt-get update
+
+# Install (includes Tor and all dependencies)
+sudo apt-get install fuckooredoo
+
+# Done! Launch it:
+fuckooredoo
+```
+
+**Why use APT?**
+- ✅ Automatic dependency installation (including Tor)
+- ✅ Tor service auto-configured and started
+- ✅ System-wide installation
+- ✅ Easy updates with `apt upgrade`
+- ✅ Man page included: `man fuckooredoo`
+- ✅ Desktop integration
+
+#### Option B: PyPI Install (All Platforms)
+
 ```bash
 pip install fuckooredoo
+```
+
+**Note:** If using PyPI, you must manually install and start Tor (see Step 1).
+
+#### Option C: Direct .deb (no PPA needed)
+
+If the Launchpad PPA is unavailable or you prefer a direct install, you can install the provided Debian package (.deb) or build one locally from this repository.
+
+- Install a downloaded .deb (for example, from the project's GitHub Releases):
+
+```bash
+# from the folder where you downloaded the file
+sudo dpkg -i fuckooredoo_1.0.4-2_all.deb
+sudo apt-get install -f    # fix and install any missing dependencies
+```
+
+- Build and install locally (use this if you changed code or want the latest from source):
+
+```bash
+# from the project root (/home/you/F_ooredoo)
+./build_deb.sh
+sudo dpkg -i ../fuckooredoo_*.deb
+sudo apt-get install -f
+```
+
+This creates a system package with desktop integration, a man page, and automatic service handling.
+
+> Tip: if you don't want a system package, `pip install .` (from the repo root) will install the Python package into your environment, but you'll need to manage Tor and desktop integration yourself.
+
+#### Download .deb (clickable link)
+
+You can download the latest .deb from the project's GitHub Releases page. Click the link below to open the Releases page and grab the most recent .deb asset for your system:
+
+[Download the latest .deb from Releases](https://github.com/AzizBahloul/F_ooredoo/releases/latest)
+
+If you prefer a direct asset link and know the exact release/tag and filename, the URL format is:
+
+```
+https://github.com/AzizBahloul/F_ooredoo/releases/download/<tag>/<filename>.deb
+```
+
+Example:
+
+```
+https://github.com/AzizBahloul/F_ooredoo/releases/download/v1.0.4/fuckooredoo_1.0.4-2_all.deb
 ```
 
 ### Step 3: Launch and Watch Magic Happen

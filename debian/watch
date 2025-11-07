@@ -1,0 +1,4 @@
+version=4
+opts="filenamemangle=s%(?:.*?)?v?(\d[\d.]*)\.tar\.gz%fuckooredoo-$1.tar.gz%" \
+https://github.com/AzizBahloul/F_ooredoo/tags \
+(?:.*?/)?v?(\d[\d.]*)\.tar\.gz debian uupdate
