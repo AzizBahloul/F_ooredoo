@@ -1,12 +1,14 @@
-# 🖕 F**k Ooredoo - The Ultimate "Fuck You" to ISP Throttling
+# F_ooredoo - The Ultimate Anti-Throttling Torrent Client
 
 **Version 1.0.2** by **Mohamed Aziz Bahloul**
+<img width="1024" height="1024" alt="image" src="https://github.com/user-attachments/assets/0f27bf18-abe3-4b7d-8dbf-74511f36d2f1" />
+
 
 ## 😤 Why This Exists
 
-So Ooredoo thinks they can **fuck with our torrents**, huh? They think throttling our bandwidth and blocking our downloads is cool? **FUCK THAT NOISE.**
+So Ooredoo thinks they can mess with our torrents, huh? They think throttling our bandwidth and blocking our downloads is acceptable? **NOT TODAY.**
 
-This isn't just a torrent client. This is a **middle finger wrapped in encryption, delivered through Tor, straight to Ooredoo's DPI systems.**
+This isn't just a torrent client. This is **a middle finger wrapped in encryption, delivered through Tor, straight to Ooredoo's DPI systems.**
 
 [![PyPI version](https://img.shields.io/pypi/v/fuckooredoo.svg)](https://pypi.org/project/fuckooredoo/)
 [![Fuck Throttling](https://img.shields.io/badge/Fuck-Throttling-red.svg)]()
@@ -14,31 +16,33 @@ This isn't just a torrent client. This is a **middle finger wrapped in encryptio
 [![Made With Spite](https://img.shields.io/badge/Made%20With-Spite-purple.svg)]()
 
 ---
+<img width="1284" height="793" alt="image" src="https://github.com/user-attachments/assets/7dae48b3-53f5-4f7e-af4a-da748e295497" />
+
 
 ## 🔥 What Makes This Special?
 
-### It Says "Fuck You" to Ooredoo in 7 Different Ways:
+### It Says "Screw You" to Ooredoo in 7 Different Ways:
 
-1. **🧅 Tor Routing** - All your traffic goes through Tor. Ooredoo can't see shit.
-2. **🔒 RC4/MSE Encryption** - Every single packet is encrypted. Good luck reading that, assholes.
-3. **🎭 Traffic Obfuscation** - Your torrent traffic looks like HTTPS. Fuck their pattern recognition.
-4. **🎲 Random Ports** - Different port every time. No more port blocking bullshit.
+1. **🧅 Tor Routing** - All your traffic goes through Tor. Ooredoo can't see anything.
+2. **🔒 RC4/MSE Encryption** - Every single packet is encrypted. Good luck reading that.
+3. **🎭 Traffic Obfuscation** - Your torrent traffic looks like HTTPS. Their pattern recognition is useless.
+4. **🎲 Random Ports** - Different port every time. No more port blocking.
 5. **🕵️ DHT Obfuscation** - Even peer discovery is encrypted. Can't block what you can't see.
-6. **⚡ uTP Protocol** - Extra layer of "go fuck yourself" to their DPI.
+6. **⚡ uTP Protocol** - Extra layer of protection against DPI.
 7. **🎪 Traffic Randomization** - Makes your torrent traffic look completely innocent.
 
 ### The Result?
 
-**Ooredoo's throttling system can go fuck itself. Seriously.**
+**Ooredoo's throttling system becomes completely ineffective. Period.**
 
 ---
 
-## 🎯 The Features (A.K.A. "Fuck You" Features)
+## 🎯 The Features
 
 ### 🖕 Anti-Throttling Arsenal
-- **Tor Network Routing**: Because fuck Ooredoo's packet inspection
-- **Forced Encryption**: RC4/MSE on EVERY connection - no exceptions, no mercy
-- **DPI Bypass**: Deep Packet Inspection? More like Deep Packet FUCK YOU
+- **Tor Network Routing**: Because screw Ooredoo's packet inspection
+- **Forced Encryption**: RC4/MSE on EVERY connection - no exceptions
+- **DPI Bypass**: Deep Packet Inspection? More like Deep Packet BYPASS
 - **DHT Through Tor**: Even finding peers is anonymous and encrypted
 - **Smart Speed Optimization**: 2000+ peer connections, 10MB/s upload for better ratios
 - **Ultra-Aggressive Settings**: We're not here to play nice
@@ -61,37 +65,39 @@ This isn't just a torrent client. This is a **middle finger wrapped in encryptio
 - **Attitude** - You should be at least 60% angry at ISP throttling
 
 ---
+![Uploading image.png…]()
 
-## 🚀 Installation (Let's Fucking Go)
+
+## 🚀 Installation (Let's Go)
 
 ### Step 1: Install Tor (Your New Best Friend)
 
-**Ubuntu/Debian** (Fuck yeah, open source):
+**Ubuntu/Debian**:
 ```bash
 sudo apt update && sudo apt install tor
 sudo systemctl start tor
 # Watch Ooredoo's throttling become useless
 ```
 
-**Fedora** (For the cool kids):
+**Fedora**:
 ```bash
 sudo dnf install tor
 sudo systemctl start tor
 ```
 
-**Arch** (I use Arch btw):
+**Arch**:
 ```bash
 sudo pacman -S tor
 sudo systemctl start tor
 ```
 
-**macOS** (Even Apple users deserve freedom):
+**macOS**:
 ```bash
 brew install tor
 brew services start tor
 ```
 
-**Windows** (Yes, even you):
+**Windows**:
 - Download Tor Browser: [torproject.org](https://www.torproject.org/download/)
 - Or: `choco install tor`
 
@@ -179,12 +185,15 @@ fuckooredoo
 ```
 
 **What happens next:**
-- ✅ Checks if Tor is ready to fuck shit up
+- ✅ Checks if Tor is ready to go
 - ✅ Verifies Ooredoo can't see your traffic
-- ✅ Launches the most beautiful "fuck you" to ISP throttling ever created
+- ✅ Launches the most effective anti-throttling tool ever created
 - ✅ Routes EVERYTHING through Tor with military-grade encryption
 
 ---
+
+<img width="640" height="640" alt="image" src="https://github.com/user-attachments/assets/ddeafc0b-62a9-4919-9905-15a31674dbd6" />
+
 
 ## 🎮 How to Use This Beast
 
@@ -197,7 +206,7 @@ fuckooredoo
 
 2. **Add a magnet link:**
    - Copy any magnet link (the ones Ooredoo hates)
-   - Paste that shit in the input field
+   - Paste it in the input field
    - Click "⬇ Download"
    - Watch Ooredoo's throttling fail miserably
 
@@ -221,18 +230,18 @@ fuckooredoo --headless --magnet "magnet:?xt=urn:btih:..."
 - **⏸ Pause**: When you need a break from watching Ooredoo fail
 - **▶ Resume**: To resume watching Ooredoo fail
 - **🗑 Remove**: Clean up completed downloads
-- **📂 Change Path**: Store your files wherever the fuck you want
+- **📂 Change Path**: Store your files wherever you want
 
 ---
 
-## 🛡️ How We Fuck Ooredoo's Throttling
+## 🛡️ How We Beat Ooredoo's Throttling
 
-### The Technical "Fuck You"
+### The Technical Details
 
 1. **Step 1: Tor Routing**
    - Every single bit goes through Tor (port 9050)
    - Ooredoo sees: `????????`
-   - Actual traffic: `YOUR GLORIOUS TORRENTS`
+   - Actual traffic: `YOUR TORRENTS AT FULL SPEED`
 
 2. **Step 2: RC4/MSE Encryption**
    - All BitTorrent traffic is encrypted with RC4
@@ -248,12 +257,12 @@ fuckooredoo --headless --magnet "magnet:?xt=urn:btih:..."
    - Random ports every session
    - Random timing patterns
    - Random packet sizes
-   - Ooredoo's pattern detection: **COMPLETELY FUCKED**
+   - Ooredoo's pattern detection: **COMPLETELY DEFEATED**
 
 ### Why This Works
 
 Because Ooredoo's throttling is:
-- ❌ Lazy as fuck
+- ❌ Lazy and predictable
 - ❌ Based on obvious patterns
 - ❌ Vulnerable to basic encryption
 - ❌ No match for Tor + Encryption combo
@@ -264,7 +273,7 @@ Because Ooredoo's throttling is:
 ## 🎪 The Stats (Prepare to Be Impressed)
 
 **Before F_ooredoo:**
-- Download speed: 50 KB/s (thanks Ooredoo, you cheap fucks)
+- Download speed: 50 KB/s (thanks Ooredoo... NOT)
 - Upload speed: lol what upload?
 - Peers: 5 (Ooredoo blocked the rest)
 - Your mood: 😠
@@ -313,7 +322,7 @@ brew services start tor    # macOS
 - Check if Tor is ACTUALLY running (green checkmark)
 - Try a more popular torrent
 - Restart Tor: `sudo systemctl restart tor`
-- Blame Ooredoo's shit infrastructure
+- Blame Ooredoo's poor infrastructure
 
 **"No module named 'tkinter'"**
 ```bash
@@ -329,9 +338,9 @@ Reinstall Python from python.org and CHECK THE TCL/TK BOX
 
 ---
 
-## ⚠️ Legal Shit (Because We Have To)
+## ⚠️ Legal Disclaimer
 
-**DISCLAIMER:**
+**IMPORTANT:**
 
 This tool is designed to bypass **UNJUST and ANTI-CONSUMER ISP throttling** on **LEGAL torrent traffic**.
 
@@ -340,10 +349,10 @@ This tool is designed to bypass **UNJUST and ANTI-CONSUMER ISP throttling** on *
 - ✅ Torrenting open-source software
 - ✅ Getting around unfair ISP throttling
 - ✅ Exercising your right to privacy
-- ✅ Telling Ooredoo to go fuck themselves (legally)
+- ✅ Fighting back against ISP overreach (legally)
 
 ### What This Tool Is NOT For:
-- ❌ Piracy (don't be a dick)
+- ❌ Piracy (don't be that person)
 - ❌ Illegal downloads (seriously, don't)
 - ❌ Copyright infringement (we're rebels, not criminals)
 
@@ -351,33 +360,33 @@ This tool is designed to bypass **UNJUST and ANTI-CONSUMER ISP throttling** on *
 - Use this responsibly
 - Only download legal content
 - Respect copyright laws in your country
-- We're fighting against ISP fuckery, not breaking laws
-- The developers are not responsible if you do stupid shit
+- We're fighting against ISP overreach, not breaking laws
+- The developers are not responsible if you misuse this
 
-**Remember:** We're here to fight UNFAIR THROTTLING, not promote piracy. Ooredoo's throttling is bullshit, but that doesn't mean piracy is okay.
+**Remember:** We're here to fight UNFAIR THROTTLING, not promote piracy. Ooredoo's throttling is wrong, but that doesn't justify piracy.
 
 ---
 
-## 🎓 How Ooredoo's Throttling Works (And Why It's Trash)
+## 🎓 How Ooredoo's Throttling Works (And Why It Fails)
 
-### Their "Strategy" (LOL)
+### Their "Strategy"
 
 1. **Deep Packet Inspection (DPI)**
    - Looks at your traffic patterns
    - Identifies BitTorrent-like behavior
-   - **Solution**: We encrypt everything, GG Ooredoo
+   - **Our Solution**: We encrypt everything, they see nothing
 
 2. **Port Blocking**
    - Blocks common BitTorrent ports (6881-6889)
-   - **Solution**: We use random ports, LOL
+   - **Our Solution**: We use random ports every time
 
 3. **Protocol Detection**
    - Tries to identify BitTorrent protocol
-   - **Solution**: Everything looks like HTTPS through Tor, nice try
+   - **Our Solution**: Everything looks like HTTPS through Tor
 
 4. **Speed Limiting**
    - Slows down "suspicious" traffic
-   - **Solution**: Our traffic isn't suspicious, it's encrypted AF
+   - **Our Solution**: Our traffic isn't suspicious, it's encrypted
 
 ### Why This Tool Destroys Their System
 
@@ -390,38 +399,38 @@ Your Downloads: *GOING AT FULL SPEED*
 
 ---
 
-## 🔮 Future Plans (Making Ooredoo Cry More)
+## 🔮 Future Plans (Even Better Anti-Throttling)
 
 - [ ] Multiple proxy support (Tor + I2P + others)
 - [ ] Bandwidth scheduling (download at night, seed during day)
 - [ ] RSS feed automation (set it and forget it)
 - [ ] Even more aggressive anti-throttling
-- [ ] Mobile app (fuck Ooredoo on your phone too)
-- [ ] Built-in VPN support (triple encryption, why not?)
-- [ ] Statistics page showing "Money Saved by Not Paying for VPN"
+- [ ] Mobile app (beat throttling on your phone too)
+- [ ] Built-in VPN support (triple encryption)
+- [ ] Statistics page showing bandwidth saved
 
 ---
 
 ## 🤝 Contributing
 
-Want to help make Ooredoo cry even more? Contributions welcome!
+Want to help make ISP throttling even less effective? Contributions welcome!
 
 **Areas where you can help:**
 - More anti-throttling techniques
 - Better obfuscation methods
 - Performance optimization
 - Cross-platform improvements
-- Documentation (make it even funnier)
-- Testing on different ISPs (fuck them all equally)
+- Documentation improvements
+- Testing on different ISPs
 
 ---
 
 ## 🏆 Hall of Fame
 
-**People Who Said "Fuck Ooredoo" Before It Was Cool:**
-- Mohamed Aziz Bahloul (that's me! 🎉)
+**People Who Fight ISP Throttling:**
+- Mohamed Aziz Bahloul (creator 🎉)
 - You (once you use this tool)
-- Everyone who's tired of ISP bullshit
+- Everyone who's tired of ISP overreach
 
 ---
 
@@ -445,13 +454,13 @@ MIT License - Because Freedom
 
 Copyright (c) 2025 Mohamed Aziz Bahloul
 
-**Translation:** Do whatever the fuck you want with this code, just don't sue me.
+**Translation:** Do whatever you want with this code, just don't sue me.
 
 ---
 
 ## 🎉 Final Words
 
-To Ooredoo: **This is what happens when you fuck with the wrong developers.**
+To Ooredoo: **This is what happens when you mess with developers.**
 
 To Users: **Download responsibly, seed generously, and never let ISPs control you.**
 
@@ -459,7 +468,7 @@ To Everyone Else: **Share this tool. Let's make ISP throttling a thing of the pa
 
 ---
 
-### Made with 😠 Anger, 💻 Code, and 🖕 Pure Spite
+### Made with 😠 Determination, 💻 Code, and 🖕 Rebellious Spirit
 
 **Remember:** We're not just downloading torrents. We're fighting for digital freedom, one encrypted packet at a time.
 
@@ -482,6 +491,6 @@ fuckooredoo --headless --aggressive-mode
 
 ---
 
-**P.S.** If you work for Ooredoo and you're reading this: Fix your shit. Stop throttling legal traffic. Do better.
+**P.S.** If you work for Ooredoo and you're reading this: Fix your throttling. Stop limiting legal traffic. Do better.
 
 **P.P.S.** If you're a user: Enjoy your full-speed downloads! You deserve it! 🎊
